@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Login | GoldLens AI</title>
+<style>
+  /* Root and basic resets */
+  * {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2f2c29;
+    color: #d9b92f; /* golden yellow text */
+  }
+
+  /* Container holds left image and right form side by side */
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+
+  /* Left image side */
+  .left-side {
+    flex: 1;
+    background-image: url("/css/login.png");
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Right form side */
+  .right-side {
+    flex: 1;
+    background-color: #3a3732; /* Slightly lighter dark background */
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* LOGIN heading */
+  .right-side h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Label styles */
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #a38c1a; /* darker golden */
+  }
+
+  /* Inputs */
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid #7e6e17;
+    background-color: #6b6111;
+    color: #e8d86f;
+    margin-bottom: 0.5rem;
+    outline-offset: 2px;
+    outline-color: transparent;
+    transition: outline-color 0.3s ease, border-color 0.3s ease;
+  }
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline-color: #d9b92f;
+    border-color: #d9b92f;
+  }
+
+  /* Error input state */
+  input.error {
+    border-color: #d32f2f;
+  }
+
+  /* Error message styling */
+  .error-message {
+    color: #ff4444;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+    display: none;
+    font-weight: 500;
+  }
+
+  .error-message.show {
+    display: block;
+  }
+
+  /* Space for password input */
+  .password-group {
+    margin-bottom: 2rem;
+  }
+
+  /* Login button */
+  .login-btn {
+    width: 100%;
+    padding: 0.85rem 0;
+    background-color: #d9b92f;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #3a3732;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.8rem;
+    transition: background-color 0.3s ease;
+  }
+  .login-btn:hover {
+    background-color: #e3cb33;
+  }
+
+  /* OR text centered */
+  .or-text {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Google button */
+  .google-btn {
+    border: 2px dashed #6e6868;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    color: #d4b632;
+    background: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+  .google-btn:hover {
+    background-color: #494533;
+    border-color: #d9b92f;
+  }
+
+  /* Google icon styling */
+  .google-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Bottom text with register link */
+  .register-text {
+    margin-top: 3rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  .register-text a {
+    color: #d9b92f;
+    text-decoration: underline;
+    font-weight: 900;
+    cursor: pointer;
+  }
+  .register-text a:hover {
+    color: #f1db3a;
+  }
+
+  /* Responsive for smaller screens: stack vertically */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    .left-side, .right-side {
+      flex: none;
+      width: 100%;
+      height: 50vh;
+    }
+    .right-side {
+      padding: 2.5rem 2rem;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-side" aria-label="Background with shiny golden spheres clustered together"></div>
+    <div class="right-side" role="main" aria-labelledby="loginHeading">
+      <h1 id="loginHeading">LOGIN</h1>
+      
+      <!-- Login Form with POST method -->
+      <form method="POST" action="/login">
+        <label for="emailInput">Email</label>
+        <input type="email" id="emailInput" name="email" autocomplete="email" required />
+        
+        <div class="password-group">
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" name="password" autocomplete="current-password" required />
+          
+          <!-- Error message (shown by Jinja2 template if error exists) -->
+          {% if error %}
+          <div class="error-message show">{{ error }}</div>
+          {% endif %}
+        </div>
+        
+        <button type="submit" class="login-btn">LOGIN</button>
+      </form>
+      
+      <div class="or-text">OR</div>
+      
+      <!-- Google Login Button - Redirects to /login/google -->
+      <a href="/login/google" class="google-btn" aria-label="Continue with Google">
+        <img
+          src="/css/google.png"
+          alt="Google logo with red, blue, yellow and green colors"
+          class="google-icon"
+          draggable="false"
+        />
+        Continue with Google
+      </a>
+      
+      <p class="register-text">
+        Don't Have Account? <a href="/register" tabindex="0">Register Now</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Add error class to inputs if error exists
+    {% if error %}
+        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('emailInput').classList.add('error');
+        document.getElementById('passwordInput').classList.add('error');
+      });
+    {% endif %}
+  </script>
+</body>
+</html>

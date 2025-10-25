@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Predictions | GoldLens AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Staatliches', cursive;
+      background: linear-gradient(to right, #faf5c4, #70e1f5);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Navigation with left-aligned logo */
+    .navigation {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      width: 80%;
+      max-width: 900px;
+      padding: 10px 20px;
+      background-color: rgba(230, 197, 98, 0.3);
+      backdrop-filter: blur(5px);
+      border: 3px solid #b79301;
+      border-radius: 200px;
+      transition: all 0.4s ease;
+    }
+
+    .scrolled .navigation {
+      background-color: rgba(230, 197, 98, 0.7);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    #navigation img {
+      width: 64.9px;
+      height: 64.9px;
+      margin-right: 10px;
+    }
+
+    #navigation p {
+      font-family: 'Staatliches', cursive;
+      color: #8d7616;
+      -webkit-text-stroke-width: 0.4px;
+      -webkit-text-stroke-color: #b79f6e;
+      cursor: pointer;
+      transition: color 0.2s, text-shadow 0.2s;
+      margin: 0 50px;
+    }
+
+    #navigation p:hover {
+      color: #e4bf26;
+      text-shadow: 0 0 8px #b79f6e;
+    }
+
+    #navigation a {
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    .main-container {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 120px auto 40px;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .left-section {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .predictions-title {
+      font-size: 3rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #c2a504;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #564204;
+      font-size: 1rem;
+      text-align: left;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px 40px 12px 16px;
+      font-size: 1rem;
+      border-radius: 24px;
+      border: none;
+      background: #c2a504;
+      color: #564204;
+      appearance: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #recommended {
+      font-size: 0.75rem;
+      color: #DB4437;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 5px;
+      margin-left: 5px;
+      letter-spacing: 0.5px;
+      display: none;
+    }
+
+    .select-wrapper::after {
+      content: '▼';
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: #564204;
+      font-size: 1rem;
+    }
+
+    .predict-btn {
+      width: 100%;
+      padding: 16px 0;
+      border: none;
+      border-radius: 24px;
+      font-weight: bold;
+      background: #564204;
+      color: #fff8dc;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 3px 16px rgba(194, 165, 4, 0.2);
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+
+    .predict-btn:hover {
+      background: #c2a504;
+      color: #564204;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(194, 165, 4, 0.4);
+    }
+
+    .prediction-output {
+      width: 100%;
+      max-width: 900px;
+      min-height: 320px;
+      background: #232323;
+      border-radius: 18px;
+      color: #fff8dc;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .prediction-output p {
+      margin-bottom: 20px;
+    }
+
+    .prediction-output div {
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: linear-gradient(to right, #4A00E0, #8E2DE2);
+      color: #fff;
+      padding: 50px 20px;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .logo-section .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .logo-section .logo-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .logo-section .logo-icon img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-section .logo-text {
+      color: #FFD700;
+      font-family: 'Staatliches', cursive;
+      font-size: 2.1rem;
+      line-height: 1.1;
+      text-decoration: none;
+    }
+
+    .logo-section a {
+      text-decoration: none;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      font-size: 1.8rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      color: #fff;
+      transition: transform 0.22s, filter 0.18s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.23) rotate(-8deg);
+      filter: brightness(1.3);
+    }
+
+    .fa-envelope { color: #DB4437; }
+    .fa-link { color: #4285F4; }
+    .fa-linkedin-in { color: #0077B5; }
+    .fa-github { color: #ffffff; }
+    .fa-instagram { color: #E4405F; }
+
+    .footer-nav h4 {
+      font-family: 'Staatliches', cursive;
+      font-size: 1.9rem;
+      margin-bottom: 15px;
+    }
+
+    .footer-nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-nav ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-nav ul li a {
+      font-family: 'Merriweather', serif;
+      color: #ADD8E6;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .footer-nav ul li a:hover {
+      color: #FFD700;
+    }
+
+    .footer-nav > a {
+      text-decoration: none;
+      color: #FFD700;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .navigation {
+        width: 90%;
+        padding: 8px 15px;
+      }
+
+      .main-container {
+        margin-top: 100px;
+      }
+
+      .predictions-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navigation {
+        width: 95%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+      }
+
+      #navigation img {
+        width: 50px;
+        height: 50px;
+        margin-right: 0;
+      }
+
+      #navigation p {
+        font-size: 0.9rem;
+        margin: 5px;
+      }
+
+      .main-container {
+        margin-top: 140px;
+        padding: 0 15px;
+        gap: 30px;
+      }
+
+      .predictions-title {
+        font-size: 2rem;
+      }
+
+      .prediction-output {
+        min-height: 250px;
+        font-size: 1.1rem;
+        padding: 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+
+      .footer-nav ul {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navigation {
+        padding: 8px;
+      }
+
+      #navigation p {
+        font-size: 0.75rem;
+      }
+
+      .predictions-title {
+        font-size: 1.75rem;
+        letter-spacing: 1px;
+      }
+
+      .form-label {
+        font-size: 0.9rem;
+      }
+
+      select {
+        padding: 10px 35px 10px 12px;
+        font-size: 0.9rem;
+      }
+
+      .predict-btn {
+        padding: 14px 0;
+        font-size: 1rem;
+      }
+
+      .prediction-output {
+        min-height: 200px;
+        font-size: 1rem;
+        padding: 15px;
+      }
+
+      .footer-nav h4 {
+        font-size: 1.5rem;
+      }
+
+      .social-icons {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="navigation" class="navigation">
+    <a href="/" rel="noopener noreferrer">
+      <img src="/css/logo.png" alt="GoldLens Logo" />
+    </a>
+    <a href="/"><p>HOME</p></a>
+    <a href="/predictions"><p>PREDICTIONS</p></a>
+    <a href="/#social-icons"><p>CONTACTS</p></a>
+    <a href="/logout"><p>LOGOUT</p></a>
+  </div>
+
+  <div class="main-container">
+    <div class="left-section">
+      <div class="predictions-title">PREDICTIONS</div>
+      <form id="predictionForm" autocomplete="off">
+        <div class="form-group">
+          <label class="form-label" for="range">PREDICTION RANGE</label>
+          <div class="select-wrapper">
+            <select id="range" required>
+              <option value="">Select Range</option>
+              <option value="1d">1 Day</option>
+              <option value="1w">1 Week</option>
+              <option value="1m">1 Month</option>
+              <option value="3m">3 Months</option>
+              <option value="6m">6 Months</option>
+              <option value="1y">1 Year</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="model">MODEL NAME</label>
+          <div class="select-wrapper">
+            <select id="model" required>
+              <option value="">Select Model</option>
+              <option value="lstm">LSTM (Long Short-Term Memory) Neural Net</option>
+              <option value="bilstm">Bi-directional LSTM Neural Net</option>
+              <option value="gru">GRU (Gated Recurrent Unit) Neural Net</option>
+              <option value="ensemble">Ensemble (LSTM + Bi-LSTM + GRU)</option>
+            </select>
+          </div>
+          <p id="recommended">⭐ RECOMMENDED</p>
+        </div>
+        <button type="submit" class="predict-btn">PREDICT</button>
+      </form>
+    </div>
+
+    <div id="output" class="prediction-output">
+      Please select prediction criteria and model...
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column logo-section">
+        <div class="logo">
+          <a href="/">
+            <div class="logo-icon">
+              <img src="/css/logo.png" alt="GoldLens Logo" />
+            </div>
+          </a>
+          <a href="/">
+            <span class="logo-text">GOLD<br>LENS</span>
+          </a>
+        </div>
+        <div class="social-icons" id="social-icons">
+          <a href="mailto:praveentak715@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a href="https://tak-praveen.github.io/PraveenTak_Portfolio/" target="_blank"><i class="fas fa-link"></i></a>
+          <a href="https://www.linkedin.com/in/praveentak/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/TAK-PRAVEEN" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/tak.praveen04/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-column footer-nav">
+        <a href="/"><h4>HOME</h4></a>
+        <ul>
+          <li><a href="/#feature-list">Features</a></li>
+          <li><a href="/#prices">Today's Prices</a></li>
+          <li><a href="/#quote">Quote of the Day</a></li>
+        </ul>
+      </div>
+      <div class="footer-column footer-nav">
+        <a href="/predictions"><h4>PREDICTIONS</h4></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const form = document.getElementById('predictionForm');
+  const outputDiv = document.getElementById('output');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const range = document.getElementById('range').value;
+    const model = document.getElementById('model').value;
+
+    if (!range || !model) {
+      outputDiv.textContent = 'Please select both prediction range and model.';
+      return;
+    }
+
+    // Show loading state
+    outputDiv.innerHTML = '<p>Loading predictions...</p>';
+
+    try {
+      // Make API request
+      const response = await fetch('/api/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ model, range })
+      });
+
+      if (!response.ok) {
+        throw new Error('Prediction failed');
+      }
+
+      const data = await response.json();
+
+      // Clear output
+      outputDiv.innerHTML = '';
+
+      // Create result message
+      const message = document.createElement('p');
+      message.textContent = `Gold Price Prediction for next ${data.n_days} days using ${model.toUpperCase()} model`;
+      message.style.fontSize = '1.1rem';
+      message.style.marginBottom = '20px';
+
+      // Create canvas for chart
+      const canvas = document.createElement('canvas');
+      canvas.id = 'predictionChart';
+      canvas.style.maxHeight = '400px';
+
+      outputDiv.appendChild(message);
+      outputDiv.appendChild(canvas);
+
+      // Plot the chart
+      plotPredictionChart(canvas, data);
+
+    } catch (error) {
+      outputDiv.innerHTML = `<p style="color: #ff4444;">Error: ${error.message}</p>`;
+    }
+  });
+
+  function plotPredictionChart(canvas, data) {
+    const ctx = canvas.getContext('2d');
+
+    // Combine historical and predicted dates
+    const allDates = [...data.historical.dates, ...data.dates];
+    const historicalPrices = data.historical.prices;
+    const predictedPrices = new Array(data.historical.dates.length).fill(null).concat(data.predictions);
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: allDates,
+        datasets: [
+          {
+            label: 'Historical Prices',
+            data: historicalPrices.concat(new Array(data.predictions.length).fill(null)),
+            borderColor: '#FFD700',
+            backgroundColor: 'rgba(255, 215, 0, 0.1)',
+            borderWidth: 2,
+            pointRadius: 0,
+          },
+          {
+            label: 'Predicted Prices',
+            data: predictedPrices,
+            borderColor: '#00FF00',
+            backgroundColor: 'rgba(0, 255, 0, 0.1)',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointRadius: 3,
+          },
+          {
+            label: 'Confidence Interval (Lower)',
+            data: new Array(data.historical.dates.length).fill(null).concat(data.confidence_lower),
+            borderColor: 'rgba(255, 99, 132, 0.3)',
+            backgroundColor: 'transparent',
+            borderWidth: 1,
+            pointRadius: 0,
+            fill: false,
+          },
+          {
+            label: 'Confidence Interval (Upper)',
+            data: new Array(data.historical.dates.length).fill(null).concat(data.confidence_upper),
+            borderColor: 'rgba(255, 99, 132, 0.3)',
+            backgroundColor: 'rgba(255, 99, 132, 0.1)',
+            borderWidth: 1,
+            pointRadius: 0,
+            fill: '-1',
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Gold Price Prediction',
+            color: '#fff8dc',
+            font: { size: 16, weight: 'bold' }
+          },
+          legend: {
+            labels: { color: '#fff8dc' }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#fff8dc', maxTicksLimit: 10 },
+            grid: { color: 'rgba(255, 248, 220, 0.1)' }
+          },
+          y: {
+            ticks: { color: '#fff8dc' },
+            grid: { color: 'rgba(255, 248, 220, 0.1)' }
+          }
+        }
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

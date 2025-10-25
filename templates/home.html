@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>GoldLens AI</title>
+    <style>
+        /* Override navigation for left-aligned logo */
+        #navigation {
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        #navigation img {
+            margin-right: 20px;
+        }
+
+        #navigation p {
+            font-family: 'Staatliches', cursive;
+            color: #8d7616;
+            -webkit-text-stroke-width: 0.4px;
+            -webkit-text-stroke-color: #b79f6e;
+            cursor: pointer;
+            transition: color 0.2s, text-shadow 0.2s;
+            margin: 0 50px;
+        }
+        /* Ensure responsive behavior */
+        @media (max-width: 768px) {
+            .navigation {
+                width: 95%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            #navigation img {
+                width: 50px;
+                height: 50px;
+                margin-right: 0;
+            }
+
+            #navigation p {
+                font-size: 0.9rem;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation with left-aligned logo -->
+    <div id="navigation" class="navigation reveal">
+        <a href="/" rel="noopener noreferrer"><img src="/css/logo.png" alt="GoldLens Logo" /></a>
+        <a href="/"><p>HOME</p></a>
+        <a href="/login"><p>PREDICTIONS</p></a>
+        <a href="#social-icons"><p>CONTACTS</p></a>
+        <a href="/login"><p>LOGIN</p></a>
+    </div>
+
+    <div class="intro-section reveal" id="intro-section">
+        <div class="left-column-content">
+            <div class="title-container1">
+                <div class="text-goldlens-stack">
+                    <p class="text-goldlens">GOLD</p>
+                    <p class="text-goldlens">LENS</p>
+                </div>
+                <p class="text-AI">AI</p>
+            </div>
+            <div>
+                <p class="real-time-text">GET REAL-TIME</p>
+                <img class="insights-animation" src="/css/Gold+Lens.gif" alt="Insights Animation">
+            </div>
+        </div>
+        <div class="imageIntro">
+            <img src="/css/chart3.png" alt="News Image" class="chart-image chart-1">
+            <img src="/css/chart1.png" alt="Main Chart Image" class="chart-image chart-2">
+            <img src="/css/chart2.png" alt="Gold Image" class="chart-image chart-3">
+        </div>
+    </div>
+
+    <div class="features-section reveal" id="feature-list">
+        <div class="title-container2">
+            <img src="/css/logo.png" alt="logo" class="title-logo">
+            <h2 class="features-title">FEATURES</h2>
+        </div>
+        <div class="feature-list">
+            <div class="feature-bar">
+                <div class="feature-title-card predictions-bg">
+                    <h3>PREDICTIONS</h3>
+                </div>
+                <div class="feature-description">
+                    <p>🔸<strong>GOLD PRICE FORECAST</strong> (NEXT DAY, NEXT WEEK, NEXT MONTH, NEXT YEAR)</p>
+                    <p>🔸OPTION TO VIEW PREDICTIONS IN <strong>ANY CURRENCY</strong></p>
+                    <p>🔸CONFIDENCE INTERVALS & <strong>TREND GRAPHS</strong></p>
+                </div>
+            </div>
+            <div class="feature-bar">
+                <div class="feature-title-card live-prices-bg">
+                    <h3>LIVE PRICES</h3>
+                </div>
+                <div class="feature-description">
+                    <p>🔸DAILY <strong>GOLD PRICE</strong> IN ALL COUNTRIES</p>
+                    <p>🔸FILTER BY CURRENCY, <strong>KARAT TYPE</strong> (24K, 22K, 18K)</p>
+                    <p>🔸SEARCH COUNTRY BY <strong>NAME/FLAG</strong></p>
+                </div>
+            </div>
+            <div class="feature-bar">
+                <div class="feature-title-card insights-bg">
+                    <h3>INSIGHTS</h3>
+                </div>
+                <div class="feature-description">
+                    <p><strong>🔸AI-GENERATED</strong> MARKET NEWS & ANALYSIS</p>
+                    <p><strong>🔸FACTORS AFFECTING GOLD PRICE TODAY</strong> (INFLATION, USD STRENGTH, GEOPOLITICAL EVENTS)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="price-panel reveal" id="prices">
+        <div class="price-grid">
+            <div class="price-item">
+                <p class="currency">In USD</p>
+                <p class="amount">$3,354.670</p>
+            </div>
+            <div class="price-item">
+                <p class="currency">In EUR</p>
+                <p class="amount">€2,871.410</p>
+            </div>
+            <div class="price-item">
+                <p class="currency">In INR (24K)</p>
+                <p class="amount">₹71,950</p>
+            </div>
+            <div class="price-item">
+                <p class="currency">In INR (18K)</p>
+                <p class="amount">₹53,955</p>
+            </div>
+            <div class="price-item">
+                <p class="currency">In GBP</p>
+                <p class="amount">£2,527.310</p>
+            </div>
+            <div class="price-item">
+                <p class="currency">In INR (22K)</p>
+                <p class="amount">₹65,965</p>
+            </div>
+        </div>
+        <div class="vertical-divider"></div>
+        <div class="panel-title1">
+            <h2>TODAY'S<br>PRICE</h2>
+        </div>
+    </div>
+
+    <div class="quote-panel reveal" id="quote">
+        <h3>QUOTE OF THE DAY</h3>
+        <p class="quote-text">The universe does not dance to the tune of our expectations. Rather, it is we who must learn the rhythm of its chaotic, beautiful, and wonderfully unpredictable symphony.</p>
+        <p class="quote-author">- Kai Zen</p>
+    </div>
+
+    <!-- Updated Footer (similar to predictions page) -->
+    <footer>
+        <a href="/login" rel="noopener noreferrer"><button class="try-now-btn">TRY NOW!</button></a>
+        <div class="footer-content">
+            <div class="footer-column logo-section">
+                <div class="logo">
+                    <a href="/">
+                        <div class="logo-icon"><img src="/css/logo.png" alt="GoldLens Logo" /></div>
+                    </a>
+                    <a href="/"><span class="logo-text">GOLD<br>LENS</span></a>
+                </div>
+                <div class="social-icons" id="social-icons">
+                    <a href="mailto:praveentak715@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://tak-praveen.github.io/PraveenTak_Portfolio/" target="_blank"><i class="fas fa-link"></i></a>
+                    <a href="https://www.linkedin.com/in/praveentak/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/TAK-PRAVEEN" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/tak.praveen04/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column footer-nav">
+                <a href="/"><h4>HOME</h4></a>
+                <ul>
+                    <li><a href="/#feature-list">Features</a></li>
+                    <li><a href="/#prices">Today's Prices</a></li>
+                    <li><a href="/#quote">Quote of the Day</a></li>
+                </ul>
+            </div>
+            <div class="footer-column footer-nav">
+                <a href="/login"><h4>PREDICTIONS</h4></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Scroll reveal effect for .reveal elements
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+          for (const el of revealElements) {
+            const windowHeight = window.innerHeight;
+            const revealTop = el.getBoundingClientRect().top;
+            if (revealTop < windowHeight - 60) {
+              el.classList.add('active');
+            } else {
+              el.classList.remove('active');
+            }
+          }
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+      });
+    </script>
+</body>
+</html>
