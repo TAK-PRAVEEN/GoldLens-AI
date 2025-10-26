@@ -2693,3 +2693,382 @@ Traceback (most recent call last):
   File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 102, in load_model
     raise FileNotFoundError(f"Model file not found: {model_path}")
 FileNotFoundError: Model file not found: E:\GoldLens-AI\models\ensemble.pkl
+2025-10-26 12:10:10 - GoldLensAI - INFO - Successfully connected to MySQL database: goldlens_ai
+2025-10-26 12:10:10 - GoldLensAI - INFO - User pt@gmail.com authenticated successfully.
+2025-10-26 12:10:20 - src.utils.prediction_utils - INFO - Starting prediction: model=ensemble, n_days=1
+2025-10-26 12:10:21 - src.utils.prediction_utils - INFO - Loaded model: ensemble
+2025-10-26 12:10:21 - src.utils.prediction_utils - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:10:21 - src.utils.prediction_utils - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 109, in predict_future_prices
+    pred_price = model.predict(X)[0][0] if hasattr(model.predict(X)[0],"__len__") else model.predict(X)[0]
+                                                   ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\input_spec.py", line 245, in assert_input_compatibility
+    raise ValueError(
+ValueError: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:15:14 - src.utils.prediction_utils - INFO - Starting prediction: model=lstm, n_days=1
+2025-10-26 12:15:14 - src.utils.prediction_utils - ERROR - Error loading model lstm: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:15:14 - src.utils.prediction_utils - ERROR - Prediction error: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 93, in predict_future_prices
+    model = load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 76, in load_model
+    raise ValueError(f"Invalid model name '{model_name}'. Choose from: {', '.join(VALID_MODEL_NAMES)}")
+ValueError: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:15:15 - src.utils.prediction_utils - INFO - Starting prediction: model=lstm, n_days=1
+2025-10-26 12:15:15 - src.utils.prediction_utils - ERROR - Error loading model lstm: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:15:15 - src.utils.prediction_utils - ERROR - Prediction error: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 93, in predict_future_prices
+    model = load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 76, in load_model
+    raise ValueError(f"Invalid model name '{model_name}'. Choose from: {', '.join(VALID_MODEL_NAMES)}")
+ValueError: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:15:15 - src.utils.prediction_utils - INFO - Starting prediction: model=lstm, n_days=1
+2025-10-26 12:15:15 - src.utils.prediction_utils - ERROR - Error loading model lstm: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:15:15 - src.utils.prediction_utils - ERROR - Prediction error: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 93, in predict_future_prices
+    model = load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 76, in load_model
+    raise ValueError(f"Invalid model name '{model_name}'. Choose from: {', '.join(VALID_MODEL_NAMES)}")
+ValueError: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:22:55 - GoldLensAI - INFO - Rendering home page
+2025-10-26 12:23:09 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:23:17 - GoldLensAI - INFO - Prediction requested. Model: lstm, Range: 1d
+2025-10-26 12:23:17 - GoldLensAI - INFO - Starting prediction: model=lstm, n_days=1
+2025-10-26 12:23:17 - GoldLensAI - ERROR - Error loading model lstm: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:23:17 - GoldLensAI - ERROR - Prediction error: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 93, in predict_future_prices
+    model = load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 76, in load_model
+    raise ValueError(f"Invalid model name '{model_name}'. Choose from: {', '.join(VALID_MODEL_NAMES)}")
+ValueError: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:23:17 - GoldLensAI - ERROR - Prediction error: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:23:17 - GoldLensAI - ERROR - Prediction API error: 500: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: Invalid model name 'lstm'. Choose from: lstm_best, bilstm_best, gru_best, ensemble
+2025-10-26 12:24:55 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:25:01 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1d
+2025-10-26 12:25:01 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=1
+2025-10-26 12:25:01 - GoldLensAI - ERROR - Error loading model lstm_best: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+2025-10-26 12:25:01 - GoldLensAI - ERROR - Prediction error: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 93, in predict_future_prices
+    model = load_model(model_name)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 79, in load_model
+    raise FileNotFoundError(f"Model file not found: {model_path}")
+FileNotFoundError: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+2025-10-26 12:25:01 - GoldLensAI - ERROR - Prediction error: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+2025-10-26 12:25:01 - GoldLensAI - ERROR - Prediction API error: 500: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: Model file not found: E:\GoldLens-AI\models\lstm_best_best.keras
+2025-10-26 12:25:34 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:25:39 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1d
+2025-10-26 12:25:39 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=1
+2025-10-26 12:25:40 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 12:25:40 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:25:41 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 12:25:41 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 1
+2025-10-26 12:25:42 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:26:30 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 6m
+2025-10-26 12:26:30 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=180
+2025-10-26 12:26:30 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 12:26:31 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:26:31 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 109, in predict_future_prices
+    pred_price = model.predict(X)[0][0] if hasattr(model.predict(X)[0],"__len__") else model.predict(X)[0]
+                                                   ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\input_spec.py", line 245, in assert_input_compatibility
+    raise ValueError(
+ValueError: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:26:31 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:26:31 - GoldLensAI - ERROR - Prediction API error: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:16 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1w
+2025-10-26 12:27:16 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=7
+2025-10-26 12:27:16 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 12:27:16 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:27:16 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 109, in predict_future_prices
+    pred_price = model.predict(X)[0][0] if hasattr(model.predict(X)[0],"__len__") else model.predict(X)[0]
+                                                   ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\input_spec.py", line 245, in assert_input_compatibility
+    raise ValueError(
+ValueError: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:16 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:17 - GoldLensAI - ERROR - Prediction API error: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:20 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1d
+2025-10-26 12:27:20 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=1
+2025-10-26 12:27:21 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 12:27:21 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:27:21 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 109, in predict_future_prices
+    pred_price = model.predict(X)[0][0] if hasattr(model.predict(X)[0],"__len__") else model.predict(X)[0]
+                                                   ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\layers\input_spec.py", line 245, in assert_input_compatibility
+    raise ValueError(
+ValueError: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:21 - GoldLensAI - ERROR - Prediction error: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:21 - GoldLensAI - ERROR - Prediction API error: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: Input 0 of layer "ensemble" is incompatible with the layer: expected shape=(None, 60, 1), found shape=(1, 27)
+2025-10-26 12:27:24 - GoldLensAI - INFO - Prediction requested. Model: gru_best, Range: 1d
+2025-10-26 12:27:24 - GoldLensAI - INFO - Starting prediction: model=gru_best, n_days=1
+2025-10-26 12:27:24 - GoldLensAI - INFO - Loaded model: gru_best
+2025-10-26 12:27:24 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:27:27 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 12:27:27 - GoldLensAI - INFO - Prediction successful for model: gru_best, days: 1
+2025-10-26 12:27:27 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:28:05 - GoldLensAI - INFO - Prediction requested. Model: gru_best, Range: 3m
+2025-10-26 12:28:05 - GoldLensAI - INFO - Starting prediction: model=gru_best, n_days=90
+2025-10-26 12:28:05 - GoldLensAI - INFO - Loaded model: gru_best
+2025-10-26 12:28:05 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:28:42 - GoldLensAI - INFO - Prediction completed: 90 days
+2025-10-26 12:28:42 - GoldLensAI - INFO - Prediction successful for model: gru_best, days: 90
+2025-10-26 12:28:42 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:31:36 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1m
+2025-10-26 12:31:36 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=30
+2025-10-26 12:31:37 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 12:31:37 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:31:51 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 12:31:51 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 30
+2025-10-26 12:31:51 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:32:29 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1m
+2025-10-26 12:32:29 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=30
+2025-10-26 12:32:29 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 12:32:29 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:32:41 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 12:32:41 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 30
+2025-10-26 12:32:41 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:35:22 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:35:28 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1w
+2025-10-26 12:35:28 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=7
+2025-10-26 12:35:28 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 12:35:28 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:35:32 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 12:35:32 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 7
+2025-10-26 12:35:33 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:42:41 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:42:46 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:43:03 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:43:11 - GoldLensAI - INFO - Predictions page access by: pt@gmail.com
+2025-10-26 12:54:17 - GoldLensAI - INFO - Rendering home page
+2025-10-26 12:54:25 - GoldLensAI - INFO - Rendering login page
+2025-10-26 12:54:28 - GoldLensAI - INFO - Google login initiated
+2025-10-26 12:54:29 - httpx - INFO - HTTP Request: GET https://accounts.google.com/.well-known/openid-configuration "HTTP/1.1 200 OK"
+2025-10-26 12:54:33 - GoldLensAI - INFO - Google auth callback triggered
+2025-10-26 12:54:33 - httpx - INFO - HTTP Request: POST https://oauth2.googleapis.com/token "HTTP/1.1 200 OK"
+2025-10-26 12:54:34 - httpx - INFO - HTTP Request: GET https://www.googleapis.com/oauth2/v3/certs "HTTP/1.1 200 OK"
+2025-10-26 12:54:34 - GoldLensAI - INFO - Google auth successful for: praveentak715@gmail.com
+2025-10-26 12:54:34 - GoldLensAI - INFO - Successfully connected to MySQL database: goldlens_ai
+2025-10-26 12:54:34 - GoldLensAI - INFO - User found: praveentak715@gmail.com
+2025-10-26 12:54:34 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 12:54:39 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1w
+2025-10-26 12:54:39 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=7
+2025-10-26 12:54:40 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 12:54:40 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:54:40 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 103, in predict_future_prices
+    scaler = joblib.load(MODEL_DIR / "scaler.pkl")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'sklearn'
+2025-10-26 12:54:40 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+2025-10-26 12:54:40 - GoldLensAI - ERROR - Prediction API error: 500: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: No module named 'sklearn'
+2025-10-26 12:54:44 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1w
+2025-10-26 12:54:44 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=7
+2025-10-26 12:54:44 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 12:54:44 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:54:44 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 103, in predict_future_prices
+    scaler = joblib.load(MODEL_DIR / "scaler.pkl")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'sklearn'
+2025-10-26 12:54:44 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+2025-10-26 12:54:44 - GoldLensAI - ERROR - Prediction API error: 500: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: No module named 'sklearn'
+2025-10-26 12:54:45 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1w
+2025-10-26 12:54:45 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=7
+2025-10-26 12:54:45 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 12:54:46 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 12:54:46 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\utils\prediction_utils.py", line 103, in predict_future_prices
+    scaler = joblib.load(MODEL_DIR / "scaler.pkl")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\site-packages\joblib\numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1538, in load_stack_global
+    self.append(self.find_class(module, name))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1580, in find_class
+    __import__(module, level=0)
+ModuleNotFoundError: No module named 'sklearn'
+2025-10-26 12:54:46 - GoldLensAI - ERROR - Prediction error: No module named 'sklearn'
+2025-10-26 12:54:46 - GoldLensAI - ERROR - Prediction API error: 500: No module named 'sklearn'
+Traceback (most recent call last):
+  File "E:\GoldLens-AI\src\api\app.py", line 178, in api_predict
+    raise HTTPException(status_code=500, detail=result["error"])
+fastapi.exceptions.HTTPException: 500: No module named 'sklearn'
+2025-10-26 13:00:05 - GoldLensAI - INFO - Rendering home page
+2025-10-26 13:00:08 - GoldLensAI - INFO - Rendering login page
+2025-10-26 13:00:10 - GoldLensAI - INFO - Google login initiated
+2025-10-26 13:00:11 - httpx - INFO - HTTP Request: GET https://accounts.google.com/.well-known/openid-configuration "HTTP/1.1 200 OK"
+2025-10-26 13:00:15 - GoldLensAI - INFO - Google auth callback triggered
+2025-10-26 13:00:16 - httpx - INFO - HTTP Request: POST https://oauth2.googleapis.com/token "HTTP/1.1 200 OK"
+2025-10-26 13:00:16 - httpx - INFO - HTTP Request: GET https://www.googleapis.com/oauth2/v3/certs "HTTP/1.1 200 OK"
+2025-10-26 13:00:16 - GoldLensAI - INFO - Google auth successful for: praveentak715@gmail.com
+2025-10-26 13:00:16 - GoldLensAI - INFO - Successfully connected to MySQL database: goldlens_ai
+2025-10-26 13:00:16 - GoldLensAI - INFO - User found: praveentak715@gmail.com
+2025-10-26 13:00:16 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 13:00:32 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1d
+2025-10-26 13:00:32 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=1
+2025-10-26 13:00:32 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 13:00:32 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:00:32 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 13:00:32 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 1
+2025-10-26 13:00:32 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:00:48 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1d
+2025-10-26 13:00:48 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=1
+2025-10-26 13:00:49 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 13:00:49 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:00:50 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 13:00:50 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 1
+2025-10-26 13:00:50 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:00:57 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1m
+2025-10-26 13:00:57 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=30
+2025-10-26 13:00:57 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 13:00:57 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:01:03 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 13:01:03 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 30
+2025-10-26 13:01:03 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:01:14 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1m
+2025-10-26 13:01:14 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=30
+2025-10-26 13:01:14 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 13:01:14 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:01:20 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 13:01:20 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 30
+2025-10-26 13:01:20 - GoldLensAI - INFO - Loaded 4004 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:07:03 - GoldLensAI - INFO - Starting gold data fetch pipeline...
+2025-10-26 13:07:03 - GoldLensAI - INFO - Existing data until 2025-10-24. Fetching updates from 2025-10-25...
+2025-10-26 13:07:13 - GoldLensAI - INFO - Appended 1 new rows. Total rows: 6313
+2025-10-26 13:07:13 - GoldLensAI - INFO - Gold data fetch pipeline completed successfully.
+2025-10-26 13:08:10 - GoldLensAI - INFO - Starting gold data fetch pipeline...
+2025-10-26 13:08:10 - GoldLensAI - INFO - Existing data until 2025-10-24. Fetching updates from 2025-10-25...
+2025-10-26 13:08:17 - GoldLensAI - INFO - Appended 1 new rows. Total rows: 6314
+2025-10-26 13:08:17 - GoldLensAI - INFO - Gold data fetch pipeline completed successfully.
+2025-10-26 13:09:04 - GoldLensAI - INFO - Loading raw gold price data from ..\GoldLens-AI\data\raw\gold_daily.csv
+2025-10-26 13:09:04 - GoldLensAI - INFO - Raw data loaded with 6314 rows
+2025-10-26 13:09:04 - GoldLensAI - INFO - Featurization complete. Output shape: (4006, 28)
+2025-10-26 13:09:04 - GoldLensAI - INFO - Saved featurized data to ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:09:43 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:09:43 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 13:09:44 - GoldLensAI - INFO - Training lstm model
+2025-10-26 13:10:57 - GoldLensAI - INFO - lstm metrics: MAE=43.1048 RMSE=3706.4743 R2=0.9910
+2025-10-26 13:10:57 - GoldLensAI - INFO - Sample actual vs lstm preds:
+Actual: [1791.40002441 1775.80004883 1784.09997559 1815.5        1831.09997559]
+Predicted: [1794.2457 1795.1411 1795.6729 1796.3793 1798.8414]
+2025-10-26 13:10:57 - GoldLensAI - INFO - Training bilstm model
+2025-10-26 13:17:21 - GoldLensAI - INFO - bilstm metrics: MAE=24.2837 RMSE=1399.1679 R2=0.9966
+2025-10-26 13:17:21 - GoldLensAI - INFO - Sample actual vs bilstm preds:
+Actual: [1791.40002441 1775.80004883 1784.09997559 1815.5        1831.09997559]
+Predicted: [1768.259  1775.226  1774.9396 1777.8132 1791.9424]
+2025-10-26 13:17:21 - GoldLensAI - INFO - Training gru model
+2025-10-26 13:19:16 - GoldLensAI - INFO - gru metrics: MAE=25.9519 RMSE=1616.0306 R2=0.9961
+2025-10-26 13:19:16 - GoldLensAI - INFO - Sample actual vs gru preds:
+Actual: [1791.40002441 1775.80004883 1784.09997559 1815.5        1831.09997559]
+Predicted: [1775.1942 1781.5282 1783.0558 1785.3463 1797.6953]
+2025-10-26 13:19:16 - GoldLensAI - INFO - Ensemble metrics: MAE=28.8893 RMSE=1880.0837 R2=0.9954
+2025-10-26 13:19:16 - GoldLensAI - INFO - Sample actual vs ensemble preds:
+Actual: [1791.40002441 1775.80004883 1784.09997559 1815.5        1831.09997559]
+Ensemble: [1779.2329 1783.9651 1784.5559 1786.5128 1796.1597]
+2025-10-26 13:19:16 - GoldLensAI - INFO - Training complete. Metrics: {'lstm': {'mae': 43.10475626112543, 'rmse': 3706.4743033155446, 'r2': 0.991006034352453}, 'bilstm': {'mae': 24.283722464645948, 'rmse': 1399.1679294111784, 'r2': 0.9966048413499005}, 'gru': {'mae': 25.951941845085067, 'rmse': 1616.0306060185353, 'r2': 0.9960786120268219}, 'ensemble': {'mae': 28.889283153678814, 'rmse': 1880.0837011049825, 'r2': 0.9954378725337107}}
+2025-10-26 13:19:16 - GoldLensAI - INFO - Test training finished successfully: {'lstm': {'mae': 43.10475626112543, 'rmse': 3706.4743033155446, 'r2': 0.991006034352453}, 'bilstm': {'mae': 24.283722464645948, 'rmse': 1399.1679294111784, 'r2': 0.9966048413499005}, 'gru': {'mae': 25.951941845085067, 'rmse': 1616.0306060185353, 'r2': 0.9960786120268219}, 'ensemble': {'mae': 28.889283153678814, 'rmse': 1880.0837011049825, 'r2': 0.9954378725337107}}
+2025-10-26 14:08:40 - GoldLensAI - INFO - Rendering home page
+2025-10-26 14:08:42 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 14:08:49 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1w
+2025-10-26 14:08:49 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=7
+2025-10-26 14:08:49 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 14:08:49 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 14:08:51 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 14:08:51 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 7
+2025-10-26 14:08:51 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 14:09:57 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 14:10:26 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1w
+2025-10-26 14:10:26 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=7
+2025-10-26 14:10:27 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 14:10:27 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 14:10:29 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 14:10:29 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 7
+2025-10-26 14:10:29 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv

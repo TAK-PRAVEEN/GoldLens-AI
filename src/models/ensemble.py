@@ -1,90 +1,58 @@
-import sys
-import os
 import numpy as np
-import pandas as pd
-from tensorflow.keras.models import load_model
-import joblib
-from pathlib import Path
+from tensorflow.keras.models import Model, load_model
+from tensorflow.keras.layers import Input, Average
 
-# Import logging setup
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')))
-from utils.logging_config import setup_logging
-
-logger = setup_logging()
-
-MODEL_DIR = Path("../GoldLens-AI/models")
-DATA_PATH = Path("../GoldLens-AI/data/processed/gold_daily_features.csv")
-window = 60
-
-# Load scaler
-scaler = joblib.load(MODEL_DIR / "scaler.pkl")
-
-def load_all_models():
-    """Load all models for prediction only (no compilation)."""
-    models = {}
-    for name in ['lstm', 'bilstm', 'gru']:
-        path = MODEL_DIR / f"{name}.keras"
-        if path.exists():
-            models[name] = load_model(path, compile=False)
-            logger.info(f"{name} model loaded for inference.")
-        else:
-            logger.error(f"Model file not found: {path}")
-    return models
-
-def batch_predict_ensemble(df):
+def build_ensemble_model(model_paths, input_shape):
     """
-    Makes ensemble predictions using all models for a given test set.
-    df: pandas DataFrame containing your processed features.
-
-    Returns: dict with actuals and all predictions (inverse scaled).
+    Build a Keras ensemble model using the averaged outputs of base models.
+    Args:
+        model_paths: list of file paths to base model .keras files
+        input_shape: tuple, shape of a single input sample (e.g., (60, 1))
+    Returns:
+        Keras Model instance
     """
-    close = df['Close'].values.reshape(-1, 1)
-    scaled = scaler.transform(close)
-    # Create windows for testing; skip train part for demo
-    X = []
-    y = []
-    for i in range(window, len(scaled)):
-        X.append(scaled[i-window:i])
-        y.append(scaled[i])
-    X = np.array(X).reshape((-1, window, 1))
-    y = np.array(y)
+    # Load all base models
+    base_models = [load_model(path, compile=False) for path in model_paths]
     
-    # Load models
-    models = load_all_models()
-    lstm = models['lstm']
-    bilstm = models['bilstm']
-    gru = models['gru']
+    # Set them to non-trainable
+    for m in base_models:
+        m.trainable = False
+    
+    # Define input
+    ensemble_input = Input(shape=input_shape, name="ensemble_input")
+    
+    # Model outputs
+    model_outputs = [m(ensemble_input) for m in base_models]
+    
+    # Average the outputs
+    avg = Average()(model_outputs)
+    
+    # Build ensemble model
+    ensemble_model = Model(inputs=ensemble_input, outputs=avg, name="ensemble")
+    return ensemble_model
 
-    # Predictions
-    pred_lstm = lstm.predict(X)
-    pred_bilstm = bilstm.predict(X)
-    pred_gru = gru.predict(X)
-    
-    # Weighted ensemble
-    ensemble_pred = (pred_lstm + pred_bilstm + pred_gru)/3
-    
-    # Inverse scaling
-    y_actual = scaler.inverse_transform(y.reshape(-1, 1))
-    pred_lstm_actual = scaler.inverse_transform(pred_lstm)
-    pred_bilstm_actual = scaler.inverse_transform(pred_bilstm)
-    pred_gru_actual = scaler.inverse_transform(pred_gru)
-    ensemble_actual = scaler.inverse_transform(ensemble_pred)
+def save_ensemble_model():
+    """
+    Build and save the ensemble model as models/ensemble.keras
+    """
+    from pathlib import Path
 
-    logger.info("Batch ensemble predictions complete")
-    return {
-        'y_true': y_actual.flatten(),
-        'lstm': pred_lstm_actual.flatten(),
-        'bilstm': pred_bilstm_actual.flatten(),
-        'gru': pred_gru_actual.flatten(),
-        'ensemble': ensemble_actual.flatten()
-    }
+    MODEL_DIR = Path("../GoldLens-AI/models")
+    window = 60  # Should match your window size
+
+    # Paths to best checkpoints of your models
+    model_paths = [
+        MODEL_DIR / "lstm_best.keras",
+        MODEL_DIR / "bilstm_best.keras",
+        MODEL_DIR / "gru_best.keras",
+    ]
+    model_paths = [str(p) for p in model_paths]
+
+    ensemble = build_ensemble_model(model_paths, input_shape=(window, 1))
+    # Save ensemble model
+    outpath = MODEL_DIR / "ensemble.keras"
+    ensemble.save(outpath)
+    print(f"Ensemble model saved to {outpath}")
 
 if __name__ == "__main__":
-    if DATA_PATH.exists():
-        df = pd.read_csv(DATA_PATH, parse_dates=['Date'])
-        results = batch_predict_ensemble(df)
-        print("First 10 actuals:", results['y_true'][:10])
-        print("First 10 ensemble preds:", results['ensemble'][:10])
-        logger.info("Sample predictions written to stdout")
-    else:
-        logger.error(f"Feature data file not found: {DATA_PATH}")
+    save_ensemble_model()

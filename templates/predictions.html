@@ -460,9 +460,9 @@
           <div class="select-wrapper">
             <select id="model" required>
               <option value="">Select Model</option>
-              <option value="lstm">LSTM (Long Short-Term Memory) Neural Net</option>
-              <option value="bilstm">Bi-directional LSTM Neural Net</option>
-              <option value="gru">GRU (Gated Recurrent Unit) Neural Net</option>
+              <option value="lstm_best">LSTM (Long Short-Term Memory) Neural Net</option>
+              <option value="bilstm_best">Bi-directional LSTM Neural Net</option>
+              <option value="gru_best">GRU (Gated Recurrent Unit) Neural Net</option>
               <option value="ensemble">Ensemble (LSTM + Bi-LSTM + GRU)</option>
             </select>
           </div>
@@ -552,9 +552,9 @@
 
       // Create result message
       const message = document.createElement('p');
-      message.textContent = `Gold Price Prediction for next ${data.n_days} days using ${model.toUpperCase()} model`;
-      message.style.fontSize = '1.1rem';
-      message.style.marginBottom = '20px';
+      // message.textContent = `Gold Price Prediction for next ${data.n_days} days using ${model.toUpperCase()} model`;
+      // message.style.fontSize = '1.1rem';
+      // message.style.marginBottom = '20px';
 
       // Create canvas for chart
       const canvas = document.createElement('canvas');
@@ -573,82 +573,122 @@
   });
 
   function plotPredictionChart(canvas, data) {
-    const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext('2d');
+  const allDates = [...data.historical.dates, ...data.dates];
+  const historicalPrices = data.historical.prices;
+  const predictedPrices = new Array(data.historical.dates.length).fill(null).concat(data.predictions);
 
-    // Combine historical and predicted dates
-    const allDates = [...data.historical.dates, ...data.dates];
-    const historicalPrices = data.historical.prices;
-    const predictedPrices = new Array(data.historical.dates.length).fill(null).concat(data.predictions);
+  // Confidence interval regions
+  const confidenceLower = new Array(data.historical.dates.length).fill(null).concat(data.confidence_lower);
+  const confidenceUpper = new Array(data.historical.dates.length).fill(null).concat(data.confidence_upper);
 
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: allDates,
-        datasets: [
-          {
-            label: 'Historical Prices',
-            data: historicalPrices.concat(new Array(data.predictions.length).fill(null)),
-            borderColor: '#FFD700',
-            backgroundColor: 'rgba(255, 215, 0, 0.1)',
-            borderWidth: 2,
-            pointRadius: 0,
-          },
-          {
-            label: 'Predicted Prices',
-            data: predictedPrices,
-            borderColor: '#00FF00',
-            backgroundColor: 'rgba(0, 255, 0, 0.1)',
-            borderWidth: 2,
-            borderDash: [5, 5],
-            pointRadius: 3,
-          },
-          {
-            label: 'Confidence Interval (Lower)',
-            data: new Array(data.historical.dates.length).fill(null).concat(data.confidence_lower),
-            borderColor: 'rgba(255, 99, 132, 0.3)',
-            backgroundColor: 'transparent',
-            borderWidth: 1,
-            pointRadius: 0,
-            fill: false,
-          },
-          {
-            label: 'Confidence Interval (Upper)',
-            data: new Array(data.historical.dates.length).fill(null).concat(data.confidence_upper),
-            borderColor: 'rgba(255, 99, 132, 0.3)',
-            backgroundColor: 'rgba(255, 99, 132, 0.1)',
-            borderWidth: 1,
-            pointRadius: 0,
-            fill: '-1',
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Gold Price Prediction',
-            color: '#fff8dc',
-            font: { size: 16, weight: 'bold' }
-          },
-          legend: {
-            labels: { color: '#fff8dc' }
-          }
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: allDates,
+      datasets: [
+        {
+          label: 'Historical Prices',
+          data: historicalPrices.concat(new Array(data.predictions.length).fill(null)),
+          borderColor: '#FFD700',
+          backgroundColor: 'rgba(255, 215, 0, 0.07)',
+          borderWidth: 3,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.22,
+          order: 1,
         },
-        scales: {
-          x: {
-            ticks: { color: '#fff8dc', maxTicksLimit: 10 },
-            grid: { color: 'rgba(255, 248, 220, 0.1)' }
-          },
-          y: {
-            ticks: { color: '#fff8dc' },
-            grid: { color: 'rgba(255, 248, 220, 0.1)' }
+        {
+          label: 'Predicted Prices',
+          data: predictedPrices,
+          borderColor: '#18e85e',
+          backgroundColor: 'rgba(0,255,0,0.10)',
+          borderWidth: 3,
+          borderDash: [8,5],
+          pointRadius: 5,
+          pointBackgroundColor: '#00FF00',
+          pointBorderColor: '#111',
+          pointHoverRadius: 7,
+          hitRadius: 14,
+          fill: false,
+          tension: 0.18,
+          order: 2,
+        },
+        {
+          label: 'Confidence Interval (Lower)',
+          data: confidenceLower,
+          borderColor: 'rgba(255, 99, 132, 0.6)',
+          backgroundColor: 'rgba(255, 99, 132, 0.14)',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: '+1',
+          order: 3,
+        },
+        {
+          label: 'Confidence Interval (Upper)',
+          data: confidenceUpper,
+          borderColor: 'rgba(255, 99, 132, 0.6)',
+          backgroundColor: 'rgba(255, 99, 132, 0.14)',
+          borderWidth: 2,
+          pointRadius: 0,
+          fill: '-1',
+          order: 4
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: `Gold Price Prediction for next ${data.n_days} days using ${data.model.toUpperCase()} model`,
+          color: '#fff8dc',
+          font: { size: 20, weight: 'bold' }
+        },
+        legend: {
+          display: true,
+          labels: { color: '#FFD700', font: { weight: 'bold' } }
+        },
+        tooltip: {
+          enabled: true,
+          mode: 'index',
+          intersect: false,
+          backgroundColor: '#232323e9',
+          titleFont: { family: "'Russo One', 'Staatliches', cursive", size: 16, weight: 'bold' },
+          bodyFont: { family: "'Merriweather', 'Staatliches', cursive", size: 15 },
+          borderColor: '#FFD700',
+          borderWidth: 1,
+          callbacks: {
+            // More beautiful tooltip label
+            label: (ctx) => {
+              let label = ctx.dataset.label || '';
+              if (ctx.parsed.y !== null) {
+                label += ': ' + ctx.parsed.y.toLocaleString(undefined, { maximumFractionDigits: 2 });
+              }
+              return label;
+            }
           }
         }
+      },
+      hover: {
+        mode: 'nearest',
+        intersect: true
+      },
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,248,220,0.08)' },
+          ticks: { color: '#fff8dc', autoSkip: true, maxTicksLimit: 14 }
+        },
+        y: {
+          grid: { color: 'rgba(255,248,220,0.13)' },
+          ticks: { color: '#fff8dc' }
+        }
       }
-    });
-  }
+    }
+  });
+}
 </script>
 
 </body>
