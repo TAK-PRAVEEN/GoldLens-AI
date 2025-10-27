@@ -22,9 +22,10 @@ def create_database():
     """
     try:
         conn = mysql.connector.connect(
-            host="127.0.0.1",
-            user="root",
-            password=SQL_PASSWORD
+            host="PraveenTak.mysql.pythonanywhere-services.com",           
+            user="PraveenTak",                
+            password=SQL_PASSWORD,  
+            database="PraveenTak$goldlens_ai"      
         )
         cursor = conn.cursor()
         cursor.execute("CREATE DATABASE IF NOT EXISTS goldlens_ai")

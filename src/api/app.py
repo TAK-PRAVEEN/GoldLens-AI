@@ -196,7 +196,7 @@ async def api_predict(request: Request):
         import traceback
         return JSONResponse(content={"error": str(e), "traceback": traceback.format_exc()}, status_code=500)
 
-if __name__ == "__main__":
-    import uvicorn
-    logger.info("Starting FastAPI/Gunicorn server")
-    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+# if __name__ == "__main__":
+#     import uvicorn
+#     logger.info("Starting FastAPI/Gunicorn server")
+#     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

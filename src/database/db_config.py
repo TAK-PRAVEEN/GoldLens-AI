@@ -25,10 +25,10 @@ def get_db_connection():
     """
     try:
         connection = mysql.connector.connect(
-            host="127.0.0.1",           
-            user="root",                
+            host="PraveenTak.mysql.pythonanywhere-services.com",           
+            user="PraveenTak",                
             password=SQL_PASSWORD,  
-            database="goldlens_ai"      
+            database="PraveenTak$goldlens_ai"      
         )
 
         if connection.is_connected():
