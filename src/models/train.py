@@ -150,15 +150,15 @@ def train_all(processed_csv, search=True, epochs=60, batch_size=32):
         logger.exception(f"Error during training: {e}")
         raise
 
-if __name__ == "__main__":
-    test_csv = ROOT / "data/processed/gold_daily_features.csv"
-    if test_csv.exists():
-        logger.info("Running test training routine with %s", test_csv)
-        try:
-            # By default, enables grid search
-            metrics = train_all(test_csv, search=True)
-            logger.info("Test training finished successfully: %s", metrics)
-        except Exception as e:
-            logger.error("Test case failed: %s", e)
-    else:
-        logger.error("Test CSV not found: %s", test_csv)
+# if __name__ == "__main__":
+#     test_csv = ROOT / "data/processed/gold_daily_features.csv"
+#     if test_csv.exists():
+#         logger.info("Running test training routine with %s", test_csv)
+#         try:
+#             # By default, enables grid search
+#             metrics = train_all(test_csv, search=True)
+#             logger.info("Test training finished successfully: %s", metrics)
+#         except Exception as e:
+#             logger.error("Test case failed: %s", e)
+#     else:
+#         logger.error("Test CSV not found: %s", test_csv)

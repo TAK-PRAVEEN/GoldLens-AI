@@ -38,21 +38,21 @@ def featurize(df):
     df = df.dropna().reset_index(drop=True)
     return df
 
-if __name__ == "__main__":
-    try:
-        logger.info(f"Loading raw gold price data from {RAW_DATA_PATH}")
-        df = pd.read_csv(RAW_DATA_PATH, parse_dates=["Date"])
-        logger.info(f"Raw data loaded with {len(df)} rows")
+# if __name__ == "__main__":
+#     try:
+#         logger.info(f"Loading raw gold price data from {RAW_DATA_PATH}")
+#         df = pd.read_csv(RAW_DATA_PATH, parse_dates=["Date"])
+#         logger.info(f"Raw data loaded with {len(df)} rows")
 
-        df_feat = featurize(df)
-        logger.info(f"Featurization complete. Output shape: {df_feat.shape}")
+#         df_feat = featurize(df)
+#         logger.info(f"Featurization complete. Output shape: {df_feat.shape}")
 
-        # Optionally save for future use
-        FEATURIZED_PATH = Path("../GoldLens-AI/data/processed/gold_daily_features.csv")
-        FEATURIZED_PATH.parent.mkdir(parents=True, exist_ok=True)
-        df_feat.to_csv(FEATURIZED_PATH, index=False)
-        logger.info(f"Saved featurized data to {FEATURIZED_PATH}")
+#         # Optionally save for future use
+#         FEATURIZED_PATH = Path("../GoldLens-AI/data/processed/gold_daily_features.csv")
+#         FEATURIZED_PATH.parent.mkdir(parents=True, exist_ok=True)
+#         df_feat.to_csv(FEATURIZED_PATH, index=False)
+#         logger.info(f"Saved featurized data to {FEATURIZED_PATH}")
 
-    except Exception as e:
-        logger.error(f"Error in loading or featurizing gold data: {e}")
-        raise
+#     except Exception as e:
+#         logger.error(f"Error in loading or featurizing gold data: {e}")
+#         raise

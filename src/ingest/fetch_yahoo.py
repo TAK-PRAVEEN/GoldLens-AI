@@ -82,7 +82,7 @@ def append_daily(ticker="GC=F", start_date="2000-01-01"):
         logger.error(f"Error updating gold data: {e}")
         raise
 
-if __name__ == "__main__":
-    logger.info("Starting gold data fetch pipeline...")
-    append_daily()
-    logger.info("Gold data fetch pipeline completed successfully.")
+# if __name__ == "__main__":
+#     logger.info("Starting gold data fetch pipeline...")
+#     append_daily()
+#     logger.info("Gold data fetch pipeline completed successfully.")

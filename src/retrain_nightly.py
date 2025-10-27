@@ -2,6 +2,7 @@ import sys
 import os
 from datetime import datetime, timedelta
 from pathlib import Path
+import pandas as pd
 
 sys.path.append(str(Path(__file__).resolve().parent))
 sys.path.append(str(Path(__file__).resolve().parent / 'api'))
@@ -17,7 +18,7 @@ from utils.logging_config import setup_logging
 logger = setup_logging()
 
 # 1. Ingest new data
-from ingest import ingest  # you should have e.g. ingest.get_latest_gold_data()
+from ingest import fetch_yahoo  # you should have e.g. ingest.get_latest_gold_data()
 # 2. Featurize data
 from features import featurize  # e.g. featurize.make_features()
 # 3. Train all models (existing train.py logic)
@@ -37,25 +38,25 @@ def main():
 
     # 1. Ingest Fresh Data
     logger.info("Ingesting gold data up to %s", yesterday.strftime('%Y-%m-%d'))
-    ingest.get_latest_gold_data(end_date=yesterday.strftime('%Y-%m-%d')) # <== adapt this to your function
+    fetch_yahoo.append_daily(ticker="GC=F", start_date="2000-01-01")
 
     # 2. Featurization
     logger.info("Featurizing data")
-    featurize.make_features(input_path=RAW_CSV, output_path=FEATURES_CSV) # <== adapt as per your API
+    df = pd.read_csv(FEATURES_CSV, parse_dates=["Date"])
+    featurize.featurize()
 
     # 3. Retrain Models
     logger.info("Retraining all models")
-    # Call as in train.py's __main__ (adapt args as needed)
     train_main.train_all(
         processed_csv=FEATURES_CSV,
-        window=60,
+        search=True,
         epochs=60,
         batch_size=32
     )
 
     # 4. Build/Save Ensemble
     logger.info("Building/saving ensemble model")
-    ensemble_main.save_ensemble_model() # assumes you have this from earlier
+    ensemble_main.ensemble() #
 
     logger.info("=== NIGHTLY PIPELINE COMPLETE ===")
 
