@@ -43,7 +43,7 @@ def main():
     # 2. Featurization
     logger.info("Featurizing data")
     df = pd.read_csv(FEATURES_CSV, parse_dates=["Date"])
-    featurize.featurize()
+    featurize.featurize(df)
 
     # 3. Retrain Models
     logger.info("Retraining all models")

@@ -3422,3 +3422,16 @@ _pickle.UnpicklingError: persistent IDs in protocol 0 must be ASCII strings
 2025-10-26 22:51:05 - GoldLensAI - INFO - Rendering home page
 2025-10-26 22:51:19 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
 2025-10-26 22:51:55 - GoldLensAI - INFO - Rendering home page
+2025-10-27 20:05:00 - GoldLensAI - INFO - === NIGHTLY PIPELINE START ===
+2025-10-27 20:05:00 - GoldLensAI - INFO - Ingesting gold data up to 2025-10-26
+2025-10-27 20:05:01 - GoldLensAI - INFO - Existing data until 2025-10-24. Fetching updates from 2025-10-25...
+2025-10-27 20:05:09 - GoldLensAI - INFO - Appended 1 new rows. Total rows: 6315
+2025-10-27 20:05:09 - GoldLensAI - INFO - Featurizing data
+2025-10-27 20:05:40 - GoldLensAI - INFO - === NIGHTLY PIPELINE START ===
+2025-10-27 20:05:40 - GoldLensAI - INFO - Ingesting gold data up to 2025-10-26
+2025-10-27 20:05:40 - GoldLensAI - INFO - No new gold price data to update.
+2025-10-27 20:05:40 - GoldLensAI - INFO - Featurizing data
+2025-10-27 20:05:41 - GoldLensAI - INFO - Retraining all models
+2025-10-27 20:05:41 - GoldLensAI - INFO - Reading data from data\processed\gold_daily_features.csv
+2025-10-27 20:05:41 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-27 20:07:46 - GoldLensAI - INFO - Rendering home page
