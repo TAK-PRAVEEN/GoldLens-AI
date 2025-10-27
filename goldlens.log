@@ -3072,3 +3072,353 @@ Ensemble: [1779.2329 1783.9651 1784.5559 1786.5128 1796.1597]
 2025-10-26 14:10:29 - GoldLensAI - INFO - Prediction completed: 7 days
 2025-10-26 14:10:29 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 7
 2025-10-26 14:10:29 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:44:45 - GoldLensAI - INFO - Rendering home page
+2025-10-26 17:44:48 - GoldLensAI - INFO - Rendering home page
+2025-10-26 17:45:09 - GoldLensAI - INFO - Predictions page access by: None
+2025-10-26 17:45:09 - GoldLensAI - WARNING - Unauthenticated predictions page access
+2025-10-26 17:45:09 - GoldLensAI - INFO - Rendering login page
+2025-10-26 17:45:12 - GoldLensAI - INFO - Google login initiated
+2025-10-26 17:45:13 - httpx - INFO - HTTP Request: GET https://accounts.google.com/.well-known/openid-configuration "HTTP/1.1 200 OK"
+2025-10-26 17:45:22 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 17:45:46 - GoldLensAI - INFO - Google auth callback triggered
+2025-10-26 17:45:46 - httpx - INFO - HTTP Request: POST https://oauth2.googleapis.com/token "HTTP/1.1 200 OK"
+2025-10-26 17:45:47 - httpx - INFO - HTTP Request: GET https://www.googleapis.com/oauth2/v3/certs "HTTP/1.1 200 OK"
+2025-10-26 17:45:47 - GoldLensAI - INFO - Google auth successful for: praveentak715@gmail.com
+2025-10-26 17:45:47 - GoldLensAI - INFO - Successfully connected to MySQL database: goldlens_ai
+2025-10-26 17:45:47 - GoldLensAI - INFO - User found: praveentak715@gmail.com
+2025-10-26 17:45:47 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 17:45:53 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1d
+2025-10-26 17:45:53 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=1
+2025-10-26 17:45:54 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 17:45:54 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:45:56 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 17:45:56 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 1
+2025-10-26 17:45:56 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:46:23 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1d
+2025-10-26 17:46:23 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=1
+2025-10-26 17:46:24 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 17:46:24 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:46:27 - GoldLensAI - INFO - Prediction completed: 1 days
+2025-10-26 17:46:27 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 1
+2025-10-26 17:46:27 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:46:47 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1w
+2025-10-26 17:46:47 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=7
+2025-10-26 17:46:48 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 17:46:48 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:46:53 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 17:46:53 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 7
+2025-10-26 17:46:53 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:47:15 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1m
+2025-10-26 17:47:15 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=30
+2025-10-26 17:47:15 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 17:47:16 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:47:24 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 17:47:24 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 30
+2025-10-26 17:47:24 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:51:29 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1m
+2025-10-26 17:51:29 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=30
+2025-10-26 17:51:30 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 17:51:30 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 17:51:39 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 17:51:39 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 30
+2025-10-26 17:51:39 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:44:33 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:44:33 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:44:33 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-26 18:44:33 - GoldLensAI - ERROR - Error during training: make_lstm() got an unexpected keyword argument 'units'
+Traceback (most recent call last):
+  File "e:\GoldLens-AI\src\models\train.py", line 95, in train_all
+    model, pred = train_and_evaluate(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 35, in train_and_evaluate
+    model = model_fn(**params)  # assumes params keys match model_fn argument names
+            ^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 96, in <lambda>
+    lambda input_shape, units, dropout: model_fn(input_shape=input_shape, units=units, dropout=dropout),
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:44:33 - GoldLensAI - ERROR - Test case failed: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:46:59 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:46:59 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:46:59 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-26 18:46:59 - GoldLensAI - ERROR - Error during training: make_lstm() got an unexpected keyword argument 'units'
+Traceback (most recent call last):
+  File "e:\GoldLens-AI\src\models\train.py", line 95, in train_all
+    model, pred = train_and_evaluate(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 35, in train_and_evaluate
+    model = model_fn(**params)  # assumes params keys match model_fn argument names
+            ^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 96, in <lambda>
+    lambda input_shape, units, dropout: model_fn(input_shape=input_shape, units=units, dropout=dropout),
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:46:59 - GoldLensAI - ERROR - Test case failed: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:47:46 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:47:46 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:47:46 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-26 18:47:46 - GoldLensAI - ERROR - Error during training: make_lstm() got an unexpected keyword argument 'units'
+Traceback (most recent call last):
+  File "e:\GoldLens-AI\src\models\train.py", line 95, in train_all
+    model, pred = train_and_evaluate(
+                  ^^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 35, in train_and_evaluate
+    model = model_fn(**params)  # assumes params keys match model_fn argument names
+            ^^^^^^^^^^^^^^^^^^
+  File "e:\GoldLens-AI\src\models\train.py", line 96, in <lambda>
+    lambda input_shape, units, dropout: model_fn(input_shape=input_shape, units=units, dropout=dropout),
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:47:46 - GoldLensAI - ERROR - Test case failed: make_lstm() got an unexpected keyword argument 'units'
+2025-10-26 18:50:39 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:50:39 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 18:50:39 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-26 18:52:32 - GoldLensAI - INFO - lstm window=30 units=32 dropout=0.1 val_MAE=43.4522
+2025-10-26 18:53:22 - GoldLensAI - INFO - lstm window=30 units=32 dropout=0.2 val_MAE=150.7947
+2025-10-26 18:54:13 - GoldLensAI - INFO - lstm window=30 units=64 dropout=0.1 val_MAE=143.4965
+2025-10-26 18:55:38 - GoldLensAI - INFO - lstm window=30 units=64 dropout=0.2 val_MAE=48.0976
+2025-10-26 18:57:13 - GoldLensAI - INFO - lstm window=30 units=128 dropout=0.1 val_MAE=39.2140
+2025-10-26 18:58:08 - GoldLensAI - INFO - lstm window=30 units=128 dropout=0.2 val_MAE=65.8481
+2025-10-26 18:59:25 - GoldLensAI - INFO - lstm window=45 units=32 dropout=0.1 val_MAE=139.1756
+2025-10-26 19:00:06 - GoldLensAI - INFO - lstm window=45 units=32 dropout=0.2 val_MAE=83.4194
+2025-10-26 19:01:45 - GoldLensAI - INFO - lstm window=45 units=64 dropout=0.1 val_MAE=72.5177
+2025-10-26 19:02:31 - GoldLensAI - INFO - lstm window=45 units=64 dropout=0.2 val_MAE=98.5598
+2025-10-26 19:05:10 - GoldLensAI - INFO - lstm window=45 units=128 dropout=0.1 val_MAE=38.9562
+2025-10-26 19:10:24 - GoldLensAI - INFO - lstm window=45 units=128 dropout=0.2 val_MAE=31.6956
+2025-10-26 19:12:52 - GoldLensAI - INFO - lstm window=60 units=32 dropout=0.1 val_MAE=43.2083
+2025-10-26 19:17:30 - GoldLensAI - INFO - lstm window=60 units=32 dropout=0.2 val_MAE=72.1164
+2025-10-26 19:18:35 - GoldLensAI - INFO - lstm window=60 units=64 dropout=0.1 val_MAE=82.1962
+2025-10-26 19:20:21 - GoldLensAI - INFO - lstm window=60 units=64 dropout=0.2 val_MAE=52.4312
+2025-10-26 19:21:51 - GoldLensAI - INFO - lstm window=60 units=128 dropout=0.1 val_MAE=51.4122
+2025-10-26 19:23:40 - GoldLensAI - INFO - lstm window=60 units=128 dropout=0.2 val_MAE=90.6541
+2025-10-26 19:23:41 - GoldLensAI - INFO - Best lstm: {'cfg': {'window': 45, 'units': 128, 'dropout': 0.2}, 'mae': 31.69563684066641, 'rmse': 2167.4218671848967, 'r2': 0.9947340058112131}
+2025-10-26 19:23:41 - GoldLensAI - INFO - Grid search for bilstm ... 18 configs
+2025-10-26 19:25:33 - GoldLensAI - INFO - bilstm window=30 units=32 dropout=0.1 val_MAE=76.0592
+2025-10-26 19:26:50 - GoldLensAI - INFO - bilstm window=30 units=32 dropout=0.2 val_MAE=95.6962
+2025-10-26 19:28:43 - GoldLensAI - INFO - bilstm window=30 units=64 dropout=0.1 val_MAE=31.5846
+2025-10-26 19:31:12 - GoldLensAI - INFO - bilstm window=30 units=64 dropout=0.2 val_MAE=30.2312
+2025-10-26 19:34:48 - GoldLensAI - INFO - bilstm window=30 units=128 dropout=0.1 val_MAE=26.4847
+2025-10-26 19:39:10 - GoldLensAI - INFO - bilstm window=30 units=128 dropout=0.2 val_MAE=25.0791
+2025-10-26 19:42:22 - GoldLensAI - INFO - bilstm window=45 units=32 dropout=0.1 val_MAE=76.2700
+2025-10-26 19:44:23 - GoldLensAI - INFO - bilstm window=45 units=32 dropout=0.2 val_MAE=38.1108
+2025-10-26 19:46:14 - GoldLensAI - INFO - bilstm window=45 units=64 dropout=0.1 val_MAE=34.9968
+2025-10-26 19:49:03 - GoldLensAI - INFO - bilstm window=45 units=64 dropout=0.2 val_MAE=34.1977
+2025-10-26 19:51:41 - GoldLensAI - INFO - bilstm window=45 units=128 dropout=0.1 val_MAE=25.8691
+2025-10-26 19:53:38 - GoldLensAI - INFO - bilstm window=45 units=128 dropout=0.2 val_MAE=28.0064
+2025-10-26 19:54:25 - GoldLensAI - INFO - bilstm window=60 units=32 dropout=0.1 val_MAE=47.6633
+2025-10-26 19:54:59 - GoldLensAI - INFO - bilstm window=60 units=32 dropout=0.2 val_MAE=102.9231
+2025-10-26 19:55:53 - GoldLensAI - INFO - bilstm window=60 units=64 dropout=0.1 val_MAE=39.0342
+2025-10-26 19:56:45 - GoldLensAI - INFO - bilstm window=60 units=64 dropout=0.2 val_MAE=70.2691
+2025-10-26 19:57:59 - GoldLensAI - INFO - bilstm window=60 units=128 dropout=0.1 val_MAE=37.7878
+2025-10-26 20:00:04 - GoldLensAI - INFO - bilstm window=60 units=128 dropout=0.2 val_MAE=29.5024
+2025-10-26 20:00:04 - GoldLensAI - INFO - Best bilstm: {'cfg': {'window': 30, 'units': 128, 'dropout': 0.2}, 'mae': 25.07907825259108, 'rmse': 1461.4704258216907, 'r2': 0.9964443939085069}
+2025-10-26 20:00:04 - GoldLensAI - INFO - Grid search for gru ... 18 configs
+2025-10-26 20:00:38 - GoldLensAI - INFO - gru window=30 units=32 dropout=0.1 val_MAE=64.2187
+2025-10-26 20:01:06 - GoldLensAI - INFO - gru window=30 units=32 dropout=0.2 val_MAE=43.0620
+2025-10-26 20:01:42 - GoldLensAI - INFO - gru window=30 units=64 dropout=0.1 val_MAE=43.9155
+2025-10-26 20:02:42 - GoldLensAI - INFO - gru window=30 units=64 dropout=0.2 val_MAE=32.3715
+2025-10-26 20:03:24 - GoldLensAI - INFO - gru window=30 units=128 dropout=0.1 val_MAE=44.8651
+2025-10-26 20:05:57 - GoldLensAI - INFO - gru window=30 units=128 dropout=0.2 val_MAE=22.5945
+2025-10-26 20:06:43 - GoldLensAI - INFO - gru window=45 units=32 dropout=0.1 val_MAE=62.2438
+2025-10-26 20:07:13 - GoldLensAI - INFO - gru window=45 units=32 dropout=0.2 val_MAE=39.5924
+2025-10-26 20:07:50 - GoldLensAI - INFO - gru window=45 units=64 dropout=0.1 val_MAE=34.8561
+2025-10-26 20:08:56 - GoldLensAI - INFO - gru window=45 units=64 dropout=0.2 val_MAE=33.6559
+2025-10-26 20:09:43 - GoldLensAI - INFO - gru window=45 units=128 dropout=0.1 val_MAE=37.6938
+2025-10-26 20:12:11 - GoldLensAI - INFO - gru window=45 units=128 dropout=0.2 val_MAE=23.7992
+2025-10-26 20:12:56 - GoldLensAI - INFO - gru window=60 units=32 dropout=0.1 val_MAE=61.6354
+2025-10-26 20:15:04 - GoldLensAI - INFO - gru window=60 units=32 dropout=0.2 val_MAE=55.3712
+2025-10-26 20:17:02 - GoldLensAI - INFO - gru window=60 units=64 dropout=0.1 val_MAE=29.5112
+2025-10-26 20:19:00 - GoldLensAI - INFO - gru window=60 units=64 dropout=0.2 val_MAE=44.7001
+2025-10-26 20:20:38 - GoldLensAI - INFO - gru window=60 units=128 dropout=0.1 val_MAE=36.9139
+2025-10-26 20:22:08 - GoldLensAI - INFO - gru window=60 units=128 dropout=0.2 val_MAE=30.0104
+2025-10-26 20:22:08 - GoldLensAI - INFO - Best gru: {'cfg': {'window': 30, 'units': 128, 'dropout': 0.2}, 'mae': 22.59447981484576, 'rmse': 1120.0730332610349, 'r2': 0.9972749783850461}
+2025-10-26 20:22:08 - GoldLensAI - ERROR - Error during training: persistent IDs in protocol 0 must be ASCII strings
+Traceback (most recent call last):
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1245, in load_persid
+    pid = self.readline()[:-1].decode("ascii")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xb7 in position 120: ordinal not in range(128)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\GoldLens-AI\src\models\train.py", line 131, in train_all
+    mdl = joblib.load(MODEL_DIR / f"{model_name}_best.keras")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\GoldLens-AI\venv\Lib\site-packages\joblib\numpy_pickle.py", line 749, in load
+    obj = _unpickle(
+          ^^^^^^^^^^
+  File "E:\GoldLens-AI\venv\Lib\site-packages\joblib\numpy_pickle.py", line 626, in _unpickle
+    obj = unpickler.load()
+          ^^^^^^^^^^^^^^^^
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1213, in load
+    dispatch[key[0]](self)
+  File "C:\Users\Owner\AppData\Local\Programs\Python\Python311\Lib\pickle.py", line 1247, in load_persid
+    raise UnpicklingError(
+_pickle.UnpicklingError: persistent IDs in protocol 0 must be ASCII strings
+2025-10-26 20:22:08 - GoldLensAI - ERROR - Test case failed: persistent IDs in protocol 0 must be ASCII strings
+2025-10-26 20:32:04 - GoldLensAI - INFO - Running test training routine with ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 20:32:04 - GoldLensAI - INFO - Reading data from ..\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 20:32:05 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
+2025-10-26 20:34:04 - GoldLensAI - INFO - lstm window=30 units=32 dropout=0.1 val_MAE=32.2049
+2025-10-26 20:34:48 - GoldLensAI - INFO - lstm window=30 units=32 dropout=0.2 val_MAE=53.1359
+2025-10-26 20:35:52 - GoldLensAI - INFO - lstm window=30 units=64 dropout=0.1 val_MAE=60.4497
+2025-10-26 20:36:23 - GoldLensAI - INFO - lstm window=30 units=64 dropout=0.2 val_MAE=93.0315
+2025-10-26 20:37:55 - GoldLensAI - INFO - lstm window=30 units=128 dropout=0.1 val_MAE=41.8027
+2025-10-26 20:41:13 - GoldLensAI - INFO - lstm window=30 units=128 dropout=0.2 val_MAE=31.9427
+2025-10-26 20:41:41 - GoldLensAI - INFO - lstm window=45 units=32 dropout=0.1 val_MAE=141.7678
+2025-10-26 20:42:10 - GoldLensAI - INFO - lstm window=45 units=32 dropout=0.2 val_MAE=89.9202
+2025-10-26 20:44:08 - GoldLensAI - INFO - lstm window=45 units=64 dropout=0.1 val_MAE=103.2346
+2025-10-26 20:45:22 - GoldLensAI - INFO - lstm window=45 units=64 dropout=0.2 val_MAE=39.9815
+2025-10-26 20:46:10 - GoldLensAI - INFO - lstm window=45 units=128 dropout=0.1 val_MAE=53.1107
+2025-10-26 20:47:30 - GoldLensAI - INFO - lstm window=45 units=128 dropout=0.2 val_MAE=41.3933
+2025-10-26 20:48:08 - GoldLensAI - INFO - lstm window=60 units=32 dropout=0.1 val_MAE=110.8791
+2025-10-26 20:48:43 - GoldLensAI - INFO - lstm window=60 units=32 dropout=0.2 val_MAE=176.1160
+2025-10-26 20:49:43 - GoldLensAI - INFO - lstm window=60 units=64 dropout=0.1 val_MAE=76.0331
+2025-10-26 20:50:29 - GoldLensAI - INFO - lstm window=60 units=64 dropout=0.2 val_MAE=103.0401
+2025-10-26 20:52:20 - GoldLensAI - INFO - lstm window=60 units=128 dropout=0.1 val_MAE=42.0375
+2025-10-26 20:55:24 - GoldLensAI - INFO - lstm window=60 units=128 dropout=0.2 val_MAE=38.2703
+2025-10-26 20:55:24 - GoldLensAI - INFO - Best lstm: {'cfg': {'window': 30, 'units': 128, 'dropout': 0.2}, 'mae': 31.942685227897346, 'rmse': 2021.7832032926217, 'r2': 0.9950812109870346}
+2025-10-26 20:55:24 - GoldLensAI - INFO - Grid search for bilstm ... 18 configs
+2025-10-26 20:56:19 - GoldLensAI - INFO - bilstm window=30 units=32 dropout=0.1 val_MAE=40.9795
+2025-10-26 20:57:09 - GoldLensAI - INFO - bilstm window=30 units=32 dropout=0.2 val_MAE=44.4459
+2025-10-26 20:57:57 - GoldLensAI - INFO - bilstm window=30 units=64 dropout=0.1 val_MAE=37.9481
+2025-10-26 20:58:45 - GoldLensAI - INFO - bilstm window=30 units=64 dropout=0.2 val_MAE=67.4437
+2025-10-26 21:01:57 - GoldLensAI - INFO - bilstm window=30 units=128 dropout=0.1 val_MAE=28.1475
+2025-10-26 21:04:48 - GoldLensAI - INFO - bilstm window=30 units=128 dropout=0.2 val_MAE=42.4194
+2025-10-26 21:07:08 - GoldLensAI - INFO - bilstm window=45 units=32 dropout=0.1 val_MAE=39.8468
+2025-10-26 21:08:01 - GoldLensAI - INFO - bilstm window=45 units=32 dropout=0.2 val_MAE=126.8793
+2025-10-26 21:10:11 - GoldLensAI - INFO - bilstm window=45 units=64 dropout=0.1 val_MAE=44.6724
+2025-10-26 21:12:23 - GoldLensAI - INFO - bilstm window=45 units=64 dropout=0.2 val_MAE=89.9524
+2025-10-26 21:16:37 - GoldLensAI - INFO - bilstm window=45 units=128 dropout=0.1 val_MAE=28.1210
+2025-10-26 21:21:17 - GoldLensAI - INFO - bilstm window=45 units=128 dropout=0.2 val_MAE=27.9767
+
+2025-10-26 21:27:42 - GoldLensAI - INFO - bilstm window=60 units=64 dropout=0.1 val_MAE=54.7820
+2025-10-26 21:31:36 - GoldLensAI - INFO - bilstm window=60 units=64 dropout=0.2 val_MAE=31.9228
+2025-10-26 21:36:38 - GoldLensAI - INFO - bilstm window=60 units=128 dropout=0.1 val_MAE=32.2377
+2025-10-26 21:42:44 - GoldLensAI - INFO - bilstm window=60 units=128 dropout=0.2 val_MAE=26.8571
+2025-10-26 21:42:45 - GoldLensAI - INFO - Best bilstm: {'cfg': {'window': 60, 'units': 128, 'dropout': 0.2}, 'mae': 26.85709460294701, 'rmse': 1588.1087120736709, 'r2': 0.9961463660524549}
+2025-10-26 21:42:45 - GoldLensAI - INFO - Grid search for gru ... 18 configs
+2025-10-26 21:43:38 - GoldLensAI - INFO - gru window=30 units=32 dropout=0.1 val_MAE=47.5973
+2025-10-26 21:44:33 - GoldLensAI - INFO - gru window=30 units=32 dropout=0.2 val_MAE=91.0370
+2025-10-26 21:46:00 - GoldLensAI - INFO - gru window=30 units=64 dropout=0.1 val_MAE=29.2591
+2025-10-26 21:47:34 - GoldLensAI - INFO - gru window=30 units=64 dropout=0.2 val_MAE=34.0739
+2025-10-26 21:48:52 - GoldLensAI - INFO - gru window=30 units=128 dropout=0.1 val_MAE=43.5102
+2025-10-26 21:50:38 - GoldLensAI - INFO - gru window=30 units=128 dropout=0.2 val_MAE=34.6720
+2025-10-26 21:51:31 - GoldLensAI - INFO - gru window=45 units=32 dropout=0.1 val_MAE=43.7255
+2025-10-26 21:52:21 - GoldLensAI - INFO - gru window=45 units=32 dropout=0.2 val_MAE=97.3068
+2025-10-26 21:54:00 - GoldLensAI - INFO - gru window=45 units=64 dropout=0.1 val_MAE=53.9968
+2025-10-26 21:55:06 - GoldLensAI - INFO - gru window=45 units=64 dropout=0.2 val_MAE=36.0806
+2025-10-26 21:56:24 - GoldLensAI - INFO - gru window=45 units=128 dropout=0.1 val_MAE=30.4201
+2025-10-26 22:00:34 - GoldLensAI - INFO - gru window=45 units=128 dropout=0.2 val_MAE=21.0466
+2025-10-26 22:02:06 - GoldLensAI - INFO - gru window=60 units=32 dropout=0.1 val_MAE=35.0076
+2025-10-26 22:04:53 - GoldLensAI - INFO - gru window=60 units=32 dropout=0.2 val_MAE=31.7960
+2025-10-26 22:06:52 - GoldLensAI - INFO - gru window=60 units=64 dropout=0.1 val_MAE=49.5637
+2025-10-26 22:09:37 - GoldLensAI - INFO - gru window=60 units=64 dropout=0.2 val_MAE=31.5291
+2025-10-26 22:12:09 - GoldLensAI - INFO - gru window=60 units=128 dropout=0.1 val_MAE=38.2502
+2025-10-26 22:14:05 - GoldLensAI - INFO - gru window=60 units=128 dropout=0.2 val_MAE=43.6557
+2025-10-26 22:14:05 - GoldLensAI - INFO - Best gru: {'cfg': {'window': 45, 'units': 128, 'dropout': 0.2}, 'mae': 21.04658975877798, 'rmse': 1093.7997449854615, 'r2': 0.9973424910083282}
+2025-10-26 22:14:14 - GoldLensAI - INFO - Grid search training complete. Metrics: {
+  "lstm": {
+    "cfg": {
+      "window": 30,
+      "units": 128,
+      "dropout": 0.2
+    },
+    "mae": 31.942685227897346,
+    "rmse": 2021.7832032926217,
+    "r2": 0.9950812109870346
+  },
+  "bilstm": {
+    "cfg": {
+      "window": 60,
+      "units": 128,
+      "dropout": 0.2
+    },
+    "mae": 26.85709460294701,
+    "rmse": 1588.1087120736709,
+    "r2": 0.9961463660524549
+  },
+  "gru": {
+    "cfg": {
+      "window": 45,
+      "units": 128,
+      "dropout": 0.2
+    },
+    "mae": 21.04658975877798,
+    "rmse": 1093.7997449854615,
+    "r2": 0.9973424910083282
+  },
+  "ensemble": {
+    "mae": 25.73750772752801,
+    "rmse": 1458.0020965092538,
+    "r2": 0.9964576206027537
+  }
+}
+2025-10-26 22:14:14 - GoldLensAI - INFO - Test training finished successfully: {'lstm': {'cfg': {'window': 30, 'units': 128, 'dropout': 0.2}, 'mae': 31.942685227897346, 'rmse': 2021.7832032926217, 'r2': 0.9950812109870346}, 'bilstm': {'cfg': {'window': 60, 'units': 128, 'dropout': 0.2}, 'mae': 26.85709460294701, 'rmse': 1588.1087120736709, 'r2': 0.9961463660524549}, 'gru': {'cfg': {'window': 45, 'units': 128, 'dropout': 0.2}, 'mae': 21.04658975877798, 'rmse': 1093.7997449854615, 'r2': 0.9973424910083282}, 'ensemble': {'mae': 25.73750772752801, 'rmse': 1458.0020965092538, 'r2': 0.9964576206027537}}
+2025-10-26 22:28:16 - GoldLensAI - INFO - Best window sizes for models: {'lstm': 30, 'bilstm': 60, 'gru': 45}
+2025-10-26 22:28:16 - GoldLensAI - INFO - Looking for models with window=30
+2025-10-26 22:28:16 - GoldLensAI - WARNING - Less than 2 models available for window=30, skipping ensemble for this window.
+2025-10-26 22:28:16 - GoldLensAI - INFO - Looking for models with window=45
+2025-10-26 22:28:16 - GoldLensAI - WARNING - Less than 2 models available for window=45, skipping ensemble for this window.
+2025-10-26 22:28:16 - GoldLensAI - INFO - Looking for models with window=60
+2025-10-26 22:28:16 - GoldLensAI - WARNING - Less than 2 models available for window=60, skipping ensemble for this window.
+2025-10-26 22:31:26 - GoldLensAI - INFO - Best window sizes for models: {'lstm': 30, 'bilstm': 60, 'gru': 45}
+2025-10-26 22:31:26 - GoldLensAI - INFO - Looking for models with window=30
+2025-10-26 22:31:26 - GoldLensAI - WARNING - Less than 2 models available for window=30, skipping ensemble for this window.
+2025-10-26 22:31:26 - GoldLensAI - INFO - Looking for models with window=45
+2025-10-26 22:31:26 - GoldLensAI - WARNING - Less than 2 models available for window=45, skipping ensemble for this window.
+2025-10-26 22:31:26 - GoldLensAI - INFO - Looking for models with window=60
+2025-10-26 22:31:26 - GoldLensAI - WARNING - Less than 2 models available for window=60, skipping ensemble for this window.
+2025-10-26 22:31:50 - GoldLensAI - INFO - Best window sizes for models: {'lstm': 30, 'bilstm': 60, 'gru': 45}
+2025-10-26 22:31:50 - GoldLensAI - INFO - Looking for models with window=30
+2025-10-26 22:31:50 - GoldLensAI - WARNING - Less than 2 models available for window=30, skipping ensemble for this window.
+2025-10-26 22:31:50 - GoldLensAI - INFO - Looking for models with window=45
+2025-10-26 22:31:50 - GoldLensAI - WARNING - Less than 2 models available for window=45, skipping ensemble for this window.
+2025-10-26 22:31:50 - GoldLensAI - INFO - Looking for models with window=60
+2025-10-26 22:31:50 - GoldLensAI - WARNING - Less than 2 models available for window=60, skipping ensemble for this window.
+2025-10-26 22:31:51 - GoldLensAI - ERROR - Ensemble model does not exist for window=30.
+2025-10-26 22:40:19 - GoldLensAI - INFO - lstm prediction (window=30): 0.95
+2025-10-26 22:40:21 - GoldLensAI - INFO - bilstm prediction (window=60): 0.95
+2025-10-26 22:40:22 - GoldLensAI - INFO - gru prediction (window=45): 0.96
+2025-10-26 22:40:22 - GoldLensAI - INFO - Ensemble mean prediction: 0.95
+2025-10-26 22:47:39 - GoldLensAI - INFO - Rendering home page
+2025-10-26 22:47:47 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 22:47:54 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1w
+2025-10-26 22:47:54 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=7
+2025-10-26 22:47:55 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 22:47:55 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:47:58 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 22:47:58 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 7
+2025-10-26 22:47:58 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:20 - GoldLensAI - INFO - Prediction requested. Model: bilstm_best, Range: 1w
+2025-10-26 22:48:20 - GoldLensAI - INFO - Starting prediction: model=bilstm_best, n_days=7
+2025-10-26 22:48:20 - GoldLensAI - INFO - Loaded model: bilstm_best
+2025-10-26 22:48:20 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:23 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 22:48:23 - GoldLensAI - INFO - Prediction successful for model: bilstm_best, days: 7
+2025-10-26 22:48:23 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:31 - GoldLensAI - INFO - Prediction requested. Model: gru_best, Range: 1w
+2025-10-26 22:48:31 - GoldLensAI - INFO - Starting prediction: model=gru_best, n_days=7
+2025-10-26 22:48:31 - GoldLensAI - INFO - Loaded model: gru_best
+2025-10-26 22:48:31 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:34 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 22:48:34 - GoldLensAI - INFO - Prediction successful for model: gru_best, days: 7
+2025-10-26 22:48:34 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:45 - GoldLensAI - INFO - Prediction requested. Model: ensemble, Range: 1w
+2025-10-26 22:48:45 - GoldLensAI - INFO - Starting prediction: model=ensemble, n_days=7
+2025-10-26 22:48:46 - GoldLensAI - INFO - Loaded model: ensemble
+2025-10-26 22:48:46 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:48:51 - GoldLensAI - INFO - Prediction completed: 7 days
+2025-10-26 22:48:51 - GoldLensAI - INFO - Prediction successful for model: ensemble, days: 7
+2025-10-26 22:48:51 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:49:17 - GoldLensAI - INFO - Prediction requested. Model: lstm_best, Range: 1m
+2025-10-26 22:49:17 - GoldLensAI - INFO - Starting prediction: model=lstm_best, n_days=30
+2025-10-26 22:49:17 - GoldLensAI - INFO - Loaded model: lstm_best
+2025-10-26 22:49:17 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:49:24 - GoldLensAI - INFO - Prediction completed: 30 days
+2025-10-26 22:49:24 - GoldLensAI - INFO - Prediction successful for model: lstm_best, days: 30
+2025-10-26 22:49:24 - GoldLensAI - INFO - Loaded 4006 rows from E:\GoldLens-AI\data\processed\gold_daily_features.csv
+2025-10-26 22:51:05 - GoldLensAI - INFO - Rendering home page
+2025-10-26 22:51:19 - GoldLensAI - INFO - Predictions page access by: praveentak715@gmail.com
+2025-10-26 22:51:55 - GoldLensAI - INFO - Rendering home page

@@ -1,58 +1,63 @@
+import pandas as pd
 import numpy as np
-from tensorflow.keras.models import Model, load_model
-from tensorflow.keras.layers import Input, Average
+import joblib
+from tensorflow.keras.models import load_model
+import json
+from pathlib import Path
+import sys
+import os
 
-def build_ensemble_model(model_paths, input_shape):
-    """
-    Build a Keras ensemble model using the averaged outputs of base models.
-    Args:
-        model_paths: list of file paths to base model .keras files
-        input_shape: tuple, shape of a single input sample (e.g., (60, 1))
-    Returns:
-        Keras Model instance
-    """
-    # Load all base models
-    base_models = [load_model(path, compile=False) for path in model_paths]
-    
-    # Set them to non-trainable
-    for m in base_models:
-        m.trainable = False
-    
-    # Define input
-    ensemble_input = Input(shape=input_shape, name="ensemble_input")
-    
-    # Model outputs
-    model_outputs = [m(ensemble_input) for m in base_models]
-    
-    # Average the outputs
-    avg = Average()(model_outputs)
-    
-    # Build ensemble model
-    ensemble_model = Model(inputs=ensemble_input, outputs=avg, name="ensemble")
-    return ensemble_model
+# Add your utility path for logging setup if outside cwd
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')))
+from utils.logging_config import setup_logging
 
-def save_ensemble_model():
-    """
-    Build and save the ensemble model as models/ensemble.keras
-    """
-    from pathlib import Path
+logger = setup_logging()
 
-    MODEL_DIR = Path("../GoldLens-AI/models")
-    window = 60  # Should match your window size
+MODEL_DIR = Path("../GoldLens-AI/models")
+metrics_path = MODEL_DIR / "metrics.json"
 
-    # Paths to best checkpoints of your models
-    model_paths = [
-        MODEL_DIR / "lstm_best.keras",
-        MODEL_DIR / "bilstm_best.keras",
-        MODEL_DIR / "gru_best.keras",
-    ]
-    model_paths = [str(p) for p in model_paths]
+# Load best model configs (window sizes)
+with metrics_path.open() as f:
+    metrics = json.load(f)
 
-    ensemble = build_ensemble_model(model_paths, input_shape=(window, 1))
-    # Save ensemble model
-    outpath = MODEL_DIR / "ensemble.keras"
-    ensemble.save(outpath)
-    print(f"Ensemble model saved to {outpath}")
+model_meta = {
+    'lstm': {
+        'window': metrics['lstm']['cfg']['window'],
+        'file': MODEL_DIR / "lstm_best.keras"
+    },
+    'bilstm': {
+        'window': metrics['bilstm']['cfg']['window'],
+        'file': MODEL_DIR / "bilstm_best.keras"
+    },
+    'gru': {
+        'window': metrics['gru']['cfg']['window'],
+        'file': MODEL_DIR / "gru_best.keras"
+    }
+}
 
-if __name__ == "__main__":
-    save_ensemble_model()
+# Load scaler
+scaler = joblib.load(MODEL_DIR / "scaler.pkl")
+df = pd.read_csv("../GoldLens-AI/data/processed/gold_daily_features.csv", parse_dates=["Date"])
+close_values = df['Close'].values
+
+# Prepare prediction for each model
+predictions = []
+for name, meta in model_meta.items():
+    window = meta['window']
+    model_file = meta['file']
+    if not model_file.exists():
+        logger.warning(f"Model file missing: {model_file}")
+        continue
+    model = load_model(model_file)
+    input_data = close_values[-window:]
+    window_scaled = scaler.transform(np.array(input_data).reshape(-1, 1))
+    pred = model.predict(window_scaled[np.newaxis])[0, 0]
+    predictions.append(pred)
+    logger.info(f"{name} prediction (window={window}): {pred:.2f}")
+
+if len(predictions) == 0:
+    logger.error("No valid predictions! Check model files.")
+else:
+    ensemble_pred = np.mean(predictions)
+    logger.info(f"Ensemble mean prediction: {ensemble_pred:.2f}")
+    print(f"Ensemble prediction: {ensemble_pred:.2f}")
