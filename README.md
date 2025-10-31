@@ -14,6 +14,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
+- [Preview](#-preview)
 - [Features](#-features)
 - [Quick Links](#-quick-links)
 - [Tech Stack](#-tech-stack)
@@ -38,6 +39,16 @@
 - **Interactive web dashboard** for visualization and predictions
 
 Perfect for traders, analysts, and anyone interested in gold market trends!
+
+---
+
+## 📸 Preview
+<img width="1903" height="1076" alt="Screenshot 2025-10-31 230104" src="https://github.com/user-attachments/assets/803e3cf0-406b-4e04-bc36-b881c206a9f1" />
+<img width="1915" height="1079" alt="Screenshot 2025-10-31 230145" src="https://github.com/user-attachments/assets/50caa17d-41da-455d-91ca-a4e7eaab0fd8" />
+<img width="1917" height="1079" alt="Screenshot 2025-10-31 230214" src="https://github.com/user-attachments/assets/356d24e3-6967-4b9e-b12e-07b39306ae84" />
+<img width="1917" height="1075" alt="Screenshot 2025-10-31 230254" src="https://github.com/user-attachments/assets/d2bb328a-34a4-4d8e-be82-2026a2f2b664" />
+<img width="1919" height="1079" alt="Screenshot 2025-10-31 230402" src="https://github.com/user-attachments/assets/0a96daaa-b916-4b89-82cf-188cfef7c894" />
+<img width="998" height="502" alt="Screenshot 2025-10-31 230444" src="https://github.com/user-attachments/assets/f8c1646a-0cb8-4b13-b6ef-20239177892d" />
 
 ---
 
