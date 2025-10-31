@@ -373,42 +373,53 @@
       </div>
 
       <div class="price-panel" id="prices">
-        <div class="price-grid">
+        <div class="div1">
           <div class="price-item">
             <p class="currency">In USD</p>
-            <p class="amount">$3,354.670</p>
-          </div>
-          <div class="price-item">
-            <p class="currency">In EUR</p>
-            <p class="amount">€2,871.410</p>
-          </div>
-          <div class="price-item">
-            <p class="currency">In INR (24K)</p>
-            <p class="amount">₹71,950</p>
-          </div>
-          <div class="price-item">
-            <p class="currency">In INR (18K)</p>
-            <p class="amount">₹53,955</p>
-          </div>
-          <div class="price-item">
-            <p class="currency">In GBP</p>
-            <p class="amount">£2,527.310</p>
-          </div>
-          <div class="price-item">
-            <p class="currency">In INR (22K)</p>
-            <p class="amount">₹65,965</p>
+            <p class="amount">{{ gold_prices.USD }}</p>
           </div>
         </div>
-        <div class="vertical-divider"></div>
-        <div class="panel-title1">
-          <h2>TODAY'S<br>PRICE</h2>
+        <div class="div2">
+          <div class="price-item">
+            <p class="currency">In EUR</p>
+            <p class="amount">{{ gold_prices.EUR }}</p>
+          </div>
+        </div>
+        <div class="div3">
+          <div class="price-item">
+            <p class="currency">In INR (24K)</p>
+            <p class="amount">{{ gold_prices.INR_24K }}</p>
+          </div>
+        </div>
+        <div class="div4">
+          <div class="price-item">
+            <p class="currency">In INR (18K)</p>
+            <p class="amount">{{ gold_prices.INR_18K }}</p>
+          </div>
+        </div>
+        <div class="div5">
+          <div class="price-item">
+            <p class="currency">In GBP</p>
+            <p class="amount">{{ gold_prices.GBP }}</p>
+          </div>
+        </div>
+        <div class="div6">
+          <div class="price-item">
+            <p class="currency">In INR (22K)</p>
+            <p class="amount">{{ gold_prices.INR_22K }}</p>
+          </div>
+        </div>
+        <div class="div7">
+          <div class="panel-title1">
+            <h2>TODAY'S<br>PRICE</h2>
+          </div>
         </div>
       </div>
 
       <div class="quote-panel" id="quote">
         <h3>QUOTE OF THE DAY</h3>
-        <p class="quote-text">The universe does not dance to the tune of our expectations. Rather, it is we who must learn the rhythm of its chaotic, beautiful, and wonderfully unpredictable symphony.</p>
-        <p class="quote-author">- Kai Zen</p>
+        <p class="quote-text">{{ quote }}</p>
+        <p class="quote-author">- {{ author }}</p>
       </div>
     </div>
     <!-- Updated Footer -->

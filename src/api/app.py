@@ -8,10 +8,67 @@ from pydantic import BaseModel
 from pathlib import Path
 from dotenv import load_dotenv
 import os
-
+import requests
+import google.generativeai as genai
 
 # Load environment variables
 load_dotenv()
+
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") 
+genai.configure(api_key=GOOGLE_API_KEY)
+
+def get_gold_prices():
+    # Fetch price per ounce of gold in USD (change source/API as needed)
+    gold_api_url = "https://data-asg.goldprice.org/dbXRates/USD"
+    response = requests.get(gold_api_url, headers={"User-Agent": "Mozilla/5.0"})
+    data = response.json()
+    price_per_ounce_usd = float(data["items"][0]["xauPrice"])
+
+    # Example currency rates (use a real API for up-to-date values)
+    currency_api_url = "https://api.exchangerate-api.com/v4/latest/USD"
+    rates = requests.get(currency_api_url).json()['rates']
+    # For INR, GBP, EUR. Fill missing if you want other currencies.
+    price_usd = price_per_ounce_usd
+    price_eur = price_usd * rates.get("EUR", 0.9)
+    price_gbp = price_usd * rates.get("GBP", 0.8)
+    price_inr = price_usd * rates.get("INR", 80)
+    
+    # Calculate 22k and 18k from 24k price (typical purity ratios)
+    price_inr_24k = price_inr
+    price_inr_22k = price_inr * (22/24)
+    price_inr_18k = price_inr * (18/24)
+
+    return {
+        "USD": f"${price_usd:,.3f}",
+        "EUR": f"€{price_eur:,.3f}",
+        "INR_24K": f"₹{int(price_inr_24k):,}",
+        "INR_22K": f"₹{int(price_inr_22k):,}",
+        "INR_18K": f"₹{int(price_inr_18k):,}",
+        "GBP": f"£{price_gbp:,.3f}"
+    }
+
+def get_gemini_quote():
+    prompt_text = (
+        "Generate a unique motivational or life quote of about 200 characters, "
+        "with the author's name at the end. Respond in the format: QUOTE — AUTHOR."
+    )
+    try:
+        print("Calling Gemini API...")
+        model = genai.GenerativeModel('gemini-2.5-pro')
+        response = model.generate_content(prompt_text)
+        quote_full = response.text.strip()
+        if "—" in quote_full:
+            quote, author = quote_full.rsplit("—", 1)
+            return {"quote": quote.strip(), "author": author.strip()}
+        else:
+            return {"quote": quote_full, "author": "Unknown"}
+    except Exception as e:
+        # In case of API or network failure, fallback to static quote
+        return {
+            "quote": "The universe does not dance to the tune of our expectations. Rather, it is we who must learn the rhythm of its chaotic, beautiful, and wonderfully unpredictable symphony.",
+            "author": "Kai Zen"
+        }
+
 
 # Initialize FastAPI app
 app = FastAPI()
@@ -47,7 +104,15 @@ class PredictionRequest(BaseModel):
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
     logger.info("Rendering home page")
-    return templates.TemplateResponse("home.html", {"request": request})
+    gold_prices = get_gold_prices()  
+    quote = get_gemini_quote()       
+    return templates.TemplateResponse("home.html", {
+        "request": request,
+        "gold_prices": gold_prices,
+        "quote": quote["quote"],
+        "author": quote["author"]
+    })
+
 
 @app.get("/login", response_class=HTMLResponse)
 async def login_page(request: Request):
@@ -85,7 +150,10 @@ async def login(request: Request, email: str = Form(...), password: str = Form(.
 @app.get("/login/google")
 async def login_google(request: Request):
     logger.info("Google login initiated")
-    return await google_login(request)
+    redirect_uri = request.url_for('google_auth_callback')
+    logger.info(f"Redirect uri: {redirect_uri}")
+    return await oauth.google.authorize_redirect(request, redirect_uri)
+
 
 @app.get("/auth", name="google_auth_callback")
 async def auth(request: Request):
@@ -147,9 +215,6 @@ async def register(request: Request, email: str = Form(...), password: str = For
 async def predictions(request: Request):
     user_email = request.session.get('user_email')
     logger.info(f"Predictions page access by: {user_email}")
-    if not user_email:
-        logger.warning("Unauthenticated predictions page access")
-        return RedirectResponse(url="/login", status_code=303)
     return templates.TemplateResponse(
         "predictions.html",
         {
@@ -196,7 +261,7 @@ async def api_predict(request: Request):
         import traceback
         return JSONResponse(content={"error": str(e), "traceback": traceback.format_exc()}, status_code=500)
 
-# if __name__ == "__main__":
-#     import uvicorn
-#     logger.info("Starting FastAPI/Gunicorn server")
-#     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
+if __name__ == "__main__":
+    import uvicorn
+    logger.info("Starting FastAPI/Gunicorn server")
+    uvicorn.run(app, host="0.0.0.0", port=5050, reload=True)

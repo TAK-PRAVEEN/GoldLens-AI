@@ -3435,3 +3435,32 @@ _pickle.UnpicklingError: persistent IDs in protocol 0 must be ASCII strings
 2025-10-27 20:05:41 - GoldLensAI - INFO - Reading data from data\processed\gold_daily_features.csv
 2025-10-27 20:05:41 - GoldLensAI - INFO - Grid search for lstm ... 18 configs
 2025-10-27 20:07:46 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:36:24 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:36:50 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:37:25 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:39:34 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:42:56 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:43:38 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:44:15 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:45:54 - GoldLensAI - INFO - Rendering login page
+2025-10-30 22:47:19 - GoldLensAI - INFO - Google login initiated
+2025-10-30 22:47:19 - GoldLensAI - INFO - Redirect uri: http://127.0.0.1:8000/auth
+2025-10-30 22:47:20 - httpx - INFO - HTTP Request: GET https://accounts.google.com/.well-known/openid-configuration "HTTP/1.1 200 OK"
+2025-10-30 22:47:23 - GoldLensAI - INFO - Google login initiated
+2025-10-30 22:47:23 - GoldLensAI - INFO - Redirect uri: http://127.0.0.1:8000/auth
+2025-10-30 22:54:45 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:57:51 - GoldLensAI - INFO - Rendering home page
+2025-10-30 22:59:03 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:00:15 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:03:06 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:05:08 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:08:59 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:26:38 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:28:48 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:30:54 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:32:02 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:39:46 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:42:27 - GoldLensAI - INFO - Rendering login page
+2025-10-30 23:43:16 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:44:57 - GoldLensAI - INFO - Rendering home page
+2025-10-30 23:51:53 - GoldLensAI - INFO - Rendering home page

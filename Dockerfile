@@ -6,12 +6,12 @@ WORKDIR /app
 
 # 3. Install system dependencies
 # build-essential is for compiling any Python packages that need C extensions (such as numpy, pandas, grpcio, etc.)
-# libgl1-mesa-glx and libglib2.0-0 are required for OpenCV/tensorflow image handling (optional but often needed)
+# libgl1 and libglib2.0-0 are required for OpenCV/tensorflow image handling (optional but often needed)
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         build-essential \
         git \
-        libgl1-mesa-glx \
+        libgl1 \
         libglib2.0-0 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
