@@ -1,6 +1,4 @@
 <div align="center">
-  <!-- <img src="./templates/css/Gold+Lens.gif" alt="GoldLens AI Banner" width="500"/> -->
-  <!-- <img src="https://github.com/user-attachments/assets/a3252ec1-c84f-4194-8b68-c9078e09f702" alt="GoldLens AI Banner" width="500"> -->
   <img src="https://github.com/user-attachments/assets/a2ae38d8-e58e-446a-91c5-6ac7a96155ac" alt="GoldLens AI Banner" width="500">
 
   **AI-Powered Gold Price Prediction & Real-Time Market Dashboard**
@@ -78,7 +76,7 @@ Perfect for traders, analysts, and anyone interested in gold market trends!
 | **Python 3.11** | Core programming language |
 | **FastAPI** | High-performance web framework |
 | **Uvicorn** | ASGI server |
-| **SQLite/MySQL** | User database |
+| **MySQL** | User database |
 | **python-dotenv** | Environment variable management |
 
 ### Machine Learning
@@ -103,6 +101,7 @@ Perfect for traders, analysts, and anyone interested in gold market trends!
 | **Google Gemini API** | AI-generated quotes |
 | **Gold Price API** | Real-time market data |
 | **Google OAuth** | User authentication |
+| **infinityfree.com** | MySQL Database |
 
 ### Deployment
 | Platform | Purpose |
@@ -114,4 +113,216 @@ Perfect for traders, analysts, and anyone interested in gold market trends!
 ---
 
 ## 📁 Project Structure
+```bash
+GoldLens-AI/
+│
+├── data/ # Datasets
+│ ├── processed/ # Feature-engineered data
+│ └── raw/ # Original gold price data
+│ └── gold_daily.csv
+│
+├── models/ # Trained ML models
+│ ├── bilstm_best.keras # BiLSTM model
+│ ├── lstm_best.keras # LSTM model
+│ ├── gru_best.keras # GRU model
+│ ├── ensemble.keras # Ensemble model
+│ ├── scaler.pkl # Data scaler
+│ └── metrics.json # Model performance metrics
+│
+├── Notebooks/ # Jupyter notebooks
+│ └── (EDA & model experiments)
+│
+├── src/ # Source code
+│ ├── api/ # FastAPI application
+│ │ └── app.py # Main API routes
+│ ├── auth/ # Authentication logic
+│ │ └── auth.py # OAuth & custom login
+│ ├── database/ # Database config
+│ │ ├── db_config.py # MySQL connection
+│ │ └── user_crud.py # User CRUD operations
+│ ├── features/ # Feature engineering
+│ │ └── featurize.py
+│ ├── ingest/ # Data ingestion
+│ │ └── fetch.py # API data fetchers
+│ ├── models/ # Model architectures
+│ │ ├── architectures.py # LSTM/GRU definitions
+│ │ ├── ensemble.py # Ensemble logic
+│ │ └── train.py # Training scripts
+│ └── utils/ # Utility functions
+│ ├── logging_config.py # Logging setup
+│ ├── plot_utils.py # Visualization helpers
+│ └── prediction_utils.py # Prediction functions
+│
+├── templates/ # HTML templates
+│ ├── css/ # Stylesheets & assets
+│ │ ├── styles.css
+│ │ ├── Gold+Lens.gif # Banner animation
+│ │ ├── logo.png
+│ │ └── ...
+│ ├── js/ # JavaScript files
+│ │ └── (client-side logic)
+│ ├── home.html # Landing page
+│ ├── login.html # Login page
+│ ├── register.html # Registration page
+│ └── predictions.html # Predictions dashboard
+│
+├── .env # Environment variables (not in repo)
+├── .gitignore # Git ignore rules
+├── .gitattributes # Git LFS tracking
+├── Dockerfile # Docker container config
+├── goldlens.log # Application logs
+├── README.md # This file
+└── requirements.txt # Python dependencies
+```
+
+---
+
+## ⚙️ Installation
+
+### Prerequisites
+- Python 3.11+
+- Git
+- (Optional) Docker
+
+### Local Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/TAK-PRAVEEN/GoldLens-AI.git
+cd GoldLens-AI
+```
+
+2. **Create virtual environment**
+
+```bash
+python -m venv venv
+source venv/bin/activate # Windows: venv\Scripts\activate
+```
+
+3. **Install dependencies**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Set up environment variables**
+Create a `.env` file:
+
+```
+SECRET_KEY=your-secret-key-here
+GOOGLE_API_KEY=your-gemini-api-key
+GOOGLE_CLIENT_ID=your-oauth-client-id
+GOOGLE_CLIENT_SECRET=your-oauth-client-secret
+DB_HOST=your-db-host
+DB_USER=your-db-user
+DB_PASSWORD=your-db-password
+DB_NAME=your-db-name
+```
+
+5. **Run the application**
+
+```bash
+uvicorn src.api.app:app --reload --host 0.0.0.0 --port 7860
+```
+
+6. **Access the app**
+Open browser: `http://localhost:7860`
+
+---
+
+## 🚀 Usage
+
+### Web Interface
+1. Navigate to the homepage
+2. View live gold prices and daily quote
+3. Register/Login to access predictions
+4. Select model and time range for forecasting
+5. View interactive prediction charts
+
+### API Usage
+
+**Get Predictions:**
+```bash
+curl -X POST "http://localhost:7860/api/predict"
+-H "Content-Type: application/json"
+-d '{"model": "lstm_best", "range": "1w"}'
+```
+
+**Response:**
+```bash
+{
+"n_days": 7,
+"model": "lstm_best",
+"dates": ["2025-11-01", "2025-11-02", ...],
+"predictions": [2800.45, 2805.32, ...],
+"confidence_lower": [2750.12, ...],
+"confidence_upper": [2850.78, ...]
+}
+```
+
+---
+
+## 📡 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/` | Home page |
+| `GET` | `/login` | Login page |
+| `POST` | `/login` | Authenticate user |
+| `GET` | `/register` | Registration page |
+| `POST` | `/register` | Create new user |
+| `GET` | `/login/google` | Google OAuth login |
+| `GET` | `/auth` | OAuth callback |
+| `GET` | `/predictions` | Predictions dashboard (auth required) |
+| `POST` | `/api/predict` | Get price predictions |
+
+---
+
+## 🧠 Models
+
+| Model | Architecture | Performance (RMSE) |
+|-------|--------------|-------------------|
+| **LSTM** | 3-layer LSTM with dropout | ~15.2 |
+| **BiLSTM** | Bidirectional LSTM | ~14.8 |
+| **GRU** | 3-layer GRU | ~15.5 |
+| **Ensemble** | Weighted average of above | ~13.9 |
+
+*Note: Performance metrics on test set (2023-2024 data)*
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📧 Contact
+
+**Praveen Tak**
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-Website-blue)](https://tak-praveen.github.io/PraveenTak_Portfolio/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5)](https://www.linkedin.com/in/praveentak/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717)](https://github.com/TAK-PRAVEEN)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836)](mailto:praveentak715@gmail.com)
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by Praveen Tak</p>
+  <p>⭐ Star this repo if you find it useful!</p>
+</div>
 
