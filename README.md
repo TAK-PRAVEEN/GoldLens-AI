@@ -72,7 +72,7 @@ Perfect for traders, analysts, and anyone interested in gold market trends!
 |----------|-----|
 | 🚀 **Live Demo** | [Hugging Face Space](https://huggingface.co/spaces/PraveenTak/GoldLens-AI) |
 | 📂 **GitHub Repo** | [TAK-PRAVEEN/GoldLens-AI](https://github.com/TAK-PRAVEEN/GoldLens-AI) |
-| 📝 **Medium Blog** | [How I Built GoldLens AI: Gold Price Prediction, Multi-Currency Analytics & AI Quotes in the Cloud]([https://github.com/TAK-PRAVEEN/GoldLens-AI](https://praveentak.medium.com/how-i-built-goldlens-ai-gold-price-prediction-multi-currency-analytics-ai-quotes-in-the-cloud-3529d2b5880e)) |
+| 📝 **Medium Blog** | [How I Built GoldLens AI](https://praveentak.medium.com/how-i-built-goldlens-ai-gold-price-prediction-multi-currency-analytics-ai-quotes-in-the-cloud-3529d2b5880e) |
 | 📊 **Notebooks** | [Exploratory Analysis](./Notebooks/) |
 | 🎨 **Frontend** | [Templates & CSS](./templates/) |
 | 🧠 **Models** | [Trained Models](./models/) |
